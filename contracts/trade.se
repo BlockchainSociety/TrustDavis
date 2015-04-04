@@ -41,7 +41,7 @@ def init():
     self.state   = NEW()
 
 def create(buyer, seller, registry, amount, expiry):
-    if state == NEW():
+    if state == NEW() and msg.sender == self.owner:
         self.buyer      = buyer
         self.seller     = seller
         self.registry   = registry
@@ -68,6 +68,5 @@ def get():
         return(0)
 
 def suicide():
-    if self.state == NEW():
-        if msg.sender == self.owner:
-            suicide(msg.sender)
+    if self.state == NEW() and msg.sender == self.owner:
+        suicide(msg.sender)
