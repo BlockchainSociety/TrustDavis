@@ -1,78 +1,73 @@
-# Trust Davis - trade contract
-#
-# - buyer
-# - seller
-# - amount
-# - expiry
-# - insurers (insured party, amount, fee)
-# - outcome
-# * contract will escrow the funds#
+data owner 
+data created
+data state
 
-# TODO
+data buyer
+data seller
+data registry
+data amount
+data expiry
+
+# TODO:
 # use substates for partial completion?
 # check expiration first?
 
-shared:
-    CREATOR = 1000
-    BUYER =  1001
-    SELLER = 1002
-    REGISTRY = 1003
+# Constants
+# Use Macro's, a hack to save GAS
 
-    AMOUNT = 2000
-    CREATED = 2001
-    EXPIRY = 2002
-    STATE = 2003
+# INSURED_BUYER = 3000
+# INSURED_SELLER = 3000
+# INSURER_LIST = 4000
 
-# states:
-# new [start]
-# filling
-# waiting
-# completed_buyer
-# completed_seller
-# completed [end]
-# failed [end]
-# expired [end]
-# cancelled [end]
-
-    INSURED_BUYER = 3000
-    INSURED_SELLER = 3000
-    INSURER_LIST = 4000
-
-init:
-    contract.storage[CREATOR] = msg.sender
-    contract.storage[CREATED] = block.timestamp
-    contract.storage[STATUS] = "new"
-
-code:
-    cmd = msg.data[0]
-    state = contract.storage[STATE]
+# State Constants
+macro NEW():
+    0
+macro FILLING():
+    1
+macro WAITING():
+    2
+# COMPLETED_BUYER
+# COMPLETED_SELLER
+# COMPLETED [END]
+# FAILED [END]
+macro EXPIRED(): # [END]
+    7
+# CANCELLED [END]
 
 
-    if state == "new":
-        if cmd == "suicide" and msg.sender == contract.storage[CREATOR]:
+def init():
+    self.owner   = msg.sender
+    self.created = block.timestamp
+    self.state   = NEW()
+
+def create(buyer, seller, registry, amount, expiry):
+    if state == NEW():
+        self.buyer      = buyer
+        self.seller     = seller
+        self.registry   = registry
+        self.amount     = amount
+        self.expiry     = expiry
+        self.state      = FILLING()
+
+def get():
+    if block.timestamp >= self.expiry:
+        # TODO handle expiration
+        self.state = EXPIRED()
+        return(0)
+
+    elif self.state == FILLING():
+        # buyer should pay escrow
+        # buyer should add insurers
+        # seller should add insurers
+        # both buyer or seller can cancel
+        return(0)
+
+    elif self.state == WAITING():
+        # both buyer and seller can complete
+        # either buyer or seller can fail
+        return(0)
+
+def suicide():
+    if self.state == NEW():
+        if msg.sender == self.owner:
             suicide(msg.sender)
-
-        elif cmd == "create" and msg.sender == contract.storage[CREATOR]:
-            contract.storage[BUYER] = msg.data[1]
-            contract.storage[SELLER] = msg.data[2]
-            contract.storage[REGISTERY] = msg.data[3]
-            contract.storage[AMOUNT] = msg.data[4]
-            contract.storage[EXPIRY] = msg.data[5]
-            contract.storage[STATE] = "filling"
-
-    else:
-        if block.timestamp >= contract.storage[EXPIRY]:
-            # TODO handle expiration
-            contract.storage[STATE] = "expired"
-            return(0)
-        elif state == "filling":
-            # buyer should pay escrow
-            # buyer should add insurers
-            # seller should add insurers
-            # both buyer or seller can cancel
-            return(0)
-
-        elif state == "waiting":
-            # both buyer and seller can complete
-            # either buyer or seller can fail
-            return(0)
