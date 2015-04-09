@@ -1,12 +1,11 @@
 # Reference Database
 
 # TODO
-# Unsure I like this data structure, specifically the "insured" and "insurer" naming
 # Review code against original
 # No False Claims scenario
 
 data owner
-data insured[2^160](max_liability, locked, insurer[2^160](max_liability, premium, last_updated, locked))
+data insurances[][](max_liability, premium, last_updated, locked)
 
 
 # Constants
@@ -20,40 +19,41 @@ macro E_NO_AVAILABLE_LIABILITY_FOR_INSURER():   922
 macro E_NOT_IMPLEMENTED():                      999
 
 # Macros
-macro INSURED_INSURER(): self.insured[insured].insurer[msg.sender]
+macro INSURED_INSURER():     self.insurances[msg.sender][insured]
+macro USER($addr):           self.insurances[$addr][0]
 
 def init():
     self.owner = msg.sender
 
 def deposit():
-    self.insured[msg.sender].max_liability += msg.value
+    USER(msg.sender).max_liability += msg.value
     return 1
 
 def withdraw(amount):
     if amount == 0:
         return E_INVALID_AMOUNT()
 
-    if amount > self.insured[msg.sender].max_liability - self.insured[msg.sender].locked:
+    if amount > USER(msg.sender).max_liability - USER(msg.sender).locked:
         return E_NO_AVAILABLE_LIABILITY_FOR_INSURER()
 
-    self.insured[msg.sender].max_liability -= amount
+    USER(msg.sender).max_liability -= amount
 
     send(msg.sender, amount) # Wei
     return 1
 
 def set(insured, max_liability, premium):
-    if insured == 0 or !self.insured[insured].max_liability:
+    if insured == 0 or !USER(insured).max_liability:
         return E_INVALID_INSURED_ADDRESS()
 
-    self.insured[insured].insurer[msg.sender].max_liability = max_liability
-    self.insured[insured].insurer[msg.sender].premium       = premium
-    self.insured[insured].insurer[msg.sender].last_updated  = block.timestamp
+    INSURED_INSURER().max_liability = max_liability
+    INSURED_INSURER().premium       = premium
+    INSURED_INSURER().last_updated  = block.timestamp
 
     # TODO add list of references
     return 1
 
 def lock(insured, liability, premium):
-    if insured == 0 or !self.insured[insured].max_liability:
+    if insured == 0 or !USER(insured).max_liability:
         return E_INVALID_INSURED_ADDRESS()
 
     if INSURED_INSURER().last_updated == 0:
@@ -70,27 +70,27 @@ def lock(insured, liability, premium):
         return E_NO_AVAILABLE_LIABILITY_FOR_INSURED()
 
     # Insurer Max Liability
-    if liability > self.insured[msg.sender].max_liability - self.insured[msg.sender].locked:
+    if liability > USER(msg.sender).max_liability - USER(msg.sender).locked:
         return E_NO_AVAILABLE_LIABILITY_FOR_INSURER()
 
-    self.insured[insured].insurer[msg.sender].locked    += liability
-    self.insured[insured].locked                        += liability
+    INSURED_INSURER().locked    += liability
+    USER(insured).locked        += liability
 
     return 1
 
 def release(insured, liability, success):
-    if insured == 0 or !self.insured[insured].max_liability:
+    if insured == 0 or !USER(insured).max_liability:
         return E_INVALID_INSURED_ADDRESS()
 
     if INSURED_INSURER().last_updated == 0:
         return E_RECORD_NOT_FOUND()
 
-    self.insured[insured].insurer[msg.sender].locked    -= liability
-    self.insured[insured].locked                        -= liability
+    INSURED_INSURER().locked    -= liability
+    USER(insured).locked        -= liability
 
     if success == 0:
-        self.insured[insured].insurer[msg.sender].max_liability    -= liability
-        self.insured[insured].max_liability                        -= liability
+        INSURED_INSURER().max_liability    -= liability
+        USER(insured).max_liability        -= liability
 
         # TODO pay to insured / claimant
 

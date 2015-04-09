@@ -20,18 +20,14 @@ data expiry
 # INSURER_LIST = 4000
 
 # State Constants
-macro NEW():
-    0
-macro FILLING():
-    1
-macro WAITING():
-    2
+macro NEW():     0
+macro FILLING(): 1
+macro WAITING(): 2
 # COMPLETED_BUYER
 # COMPLETED_SELLER
 # COMPLETED [END]
 # FAILED [END]
-macro EXPIRED(): # [END]
-    7
+macro EXPIRED(): 7
 # CANCELLED [END]
 
 
