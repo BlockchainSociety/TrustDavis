@@ -56,8 +56,6 @@ def lock(insured, liability, premium):
     if insured == 0 or !self.insured[insured].max_liability:
         return E_INVALID_INSURED_ADDRESS()
 
-    # INSURED_INSURER() = self.insured[insured].insurer[msg.sender]
-
     if INSURED_INSURER().last_updated == 0:
         return E_RECORD_NOT_FOUND()
 
@@ -83,8 +81,6 @@ def lock(insured, liability, premium):
 def release(insured, liability, success):
     if insured == 0 or !self.insured[insured].max_liability:
         return E_INVALID_INSURED_ADDRESS()
-
-    # INSURED_INSURER() = self.insured[insured].insurer[msg.sender]
 
     if INSURED_INSURER().last_updated == 0:
         return E_RECORD_NOT_FOUND()
