@@ -19,7 +19,7 @@ macro E_NO_AVAILABLE_LIABILITY_FOR_INSURER():   922
 macro E_NOT_IMPLEMENTED():                      999
 
 # Macros
-macro INSURED_INSURER():     self.insurances[msg.sender][insured]
+macro INSURER_INSURED():     self.insurances[msg.sender][insured]
 macro USER($addr):           self.insurances[$addr][0]
 
 def init():
@@ -45,9 +45,9 @@ def set(insured, max_liability, premium):
     if insured == 0 or !USER(insured).max_liability:
         return E_INVALID_INSURED_ADDRESS()
 
-    INSURED_INSURER().max_liability = max_liability
-    INSURED_INSURER().premium       = premium
-    INSURED_INSURER().last_updated  = block.timestamp
+    INSURER_INSURED().max_liability = max_liability
+    INSURER_INSURED().premium       = premium
+    INSURER_INSURED().last_updated  = block.timestamp
 
     # TODO add list of references
     return 1
@@ -56,24 +56,24 @@ def lock(insured, liability, premium):
     if insured == 0 or !USER(insured).max_liability:
         return E_INVALID_INSURED_ADDRESS()
 
-    if INSURED_INSURER().last_updated == 0:
+    if INSURER_INSURED().last_updated == 0:
         return E_RECORD_NOT_FOUND()
 
-    if premium != INSURED_INSURER().premium:
+    if premium != INSURER_INSURED().premium:
         # premium mismatch
         return E_PREMIUM_MISMATCH()
 
     # TODO charge premium
 
     # Insured Max Liability
-    if liability > INSURED_INSURER().max_liability - INSURED_INSURER().locked:
+    if liability > INSURER_INSURED().max_liability - INSURER_INSURED().locked:
         return E_NO_AVAILABLE_LIABILITY_FOR_INSURED()
 
     # Insurer Max Liability
     if liability > USER(msg.sender).max_liability - USER(msg.sender).locked:
         return E_NO_AVAILABLE_LIABILITY_FOR_INSURER()
 
-    INSURED_INSURER().locked    += liability
+    INSURER_INSURED().locked    += liability
     USER(insured).locked        += liability
 
     return 1
@@ -82,14 +82,14 @@ def release(insured, liability, success):
     if insured == 0 or !USER(insured).max_liability:
         return E_INVALID_INSURED_ADDRESS()
 
-    if INSURED_INSURER().last_updated == 0:
+    if INSURER_INSURED().last_updated == 0:
         return E_RECORD_NOT_FOUND()
 
-    INSURED_INSURER().locked    -= liability
+    INSURER_INSURED().locked    -= liability
     USER(insured).locked        -= liability
 
     if success == 0:
-        INSURED_INSURER().max_liability    -= liability
+        INSURER_INSURED().max_liability    -= liability
         USER(insured).max_liability        -= liability
 
         # TODO pay to insured / claimant
