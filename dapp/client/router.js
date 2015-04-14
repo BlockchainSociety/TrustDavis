@@ -12,6 +12,11 @@ Router.map(function() {
         template: 'trades'
     });
 
+    this.route('tradeDetails', {
+        path: '/trade/:tradeId',
+        template: 'tradeDetails'
+    });
+
     this.route('references', {
         path: '/references',
         template: 'references'
@@ -20,5 +25,15 @@ Router.map(function() {
     this.route('contacts', {
         path: '/contacts',
         template: 'contacts'
+    });
+
+    this.route('userDetails', {
+        path: '/user/:userId',
+        template: 'userDetails'
+    });
+
+    this.route('notfound', {
+        path: '/notfound',
+        template: 'notfound'
     });
 });
