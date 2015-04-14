@@ -13,4 +13,4 @@ To run the app:
     $ cd TrustDavis/dapp
     $ meteor
 
-Open your web browser and go to http://localhost:3000 to see the app running.
+Open your web browser and go to [http://localhost:3000](http://localhost:3000) to see the app running.
