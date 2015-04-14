@@ -1,0 +1,11 @@
+.form-control.small {
+    width: 100px;
+}
+
+.form-control.medium {
+    width: 170px;
+}
+
+.spacer {
+    margin-top: 40px;
+}

@@ -7,3 +7,5 @@
 meteor-platform
 iron:router
 nemo64:bootstrap
+fortawesome:fontawesome
+less
