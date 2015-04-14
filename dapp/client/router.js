@@ -3,22 +3,21 @@ Router.configure({
 });
 
 Router.map(function() {
-    this.route('Home', {
-        path: '/',
-        template: 'home'
+    this.route('/', function() {
+        this.redirect('trades');
     });
 
-    this.route('Trades', {
+    this.route('trades', {
         path: '/trades',
         template: 'trades'
     });
 
-    this.route('References', {
+    this.route('references', {
         path: '/references',
         template: 'references'
     });
 
-    this.route('Contacts', {
+    this.route('contacts', {
         path: '/contacts',
         template: 'contacts'
     });
