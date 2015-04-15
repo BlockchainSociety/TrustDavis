@@ -8,14 +8,14 @@
                 Trade Summary
                 </h3>
             </div>
-            
             <div class="panel-body">
                 <table class="table table-condensed table-striped">
                     <tbody>
                         <tr>
                             <td>Trade ID</td>
                             <td>
-                                <span>id</span>
+                                <span>{{trade._id}}</span>
+                                <!-- TODO modal -->
                                 <button type="button" class="btn btn-default btn-xs">
                                 <i class="fa fa-files-o fa-lg">
                                 </i>
@@ -25,6 +25,7 @@
                         <tr>
                             <td>
                                 <span>Seller </span>
+                                <!-- TODO Seller -->
                                 <span>(you)</span>
                             </td>
                             <td>
@@ -39,23 +40,25 @@
                         </tr>
                         <tr>
                             <td><span>Buyer </span></td>
+                            <!-- TODO Buyer -->
                             <td>Not claimed</td>
                         </tr>
                         <tr>
                             <td>Description</td>
-                            <td>dffdfd</td>
+                            <td>{{trade.description}}</td>
                         </tr>
                         <tr>
                             <td>Price</td>
                             <td>
                                 <span>USD</span>
-                                <span>10</span>
+                                <span>{{trade.price}}</span>
                             </td>
                         </tr>
                         <tr>
                             <td>Valid Until</td>
                             <td>
-                                <span>2015-05-14</span>
+                                <span>{{formatDate trade.expiration}}</span>
+                                <!-- TODO humanize date -->
                                 <span>(</span>
                                 <span>in a month</span>
                                 <span>)</span>
@@ -80,8 +83,8 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="{this.props.pct}" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
-                                <span>0</span>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{trade.escrowPct}}" aria-valuemin="0" aria-valuemax="100" style="width:{{trade.escrowPct}}%;">
+                                <span>{{trade.escrowPct}}</span>
                                 <span>%</span>
                             </div>
                         </div>
@@ -93,8 +96,8 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="{this.props.pct}" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
-                                <span>0</span>
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{trade.insurancePct}}" aria-valuemin="0" aria-valuemax="100" style="width:{{trade.insurancePct}}%;">
+                                <span>{{trade.insurancePct}}</span>
                                 <span>%</span>
                             </div>
                         </div>
@@ -105,7 +108,7 @@
                         Status
                     </div>
                     <div class="col-xs-8">
-                        NEW
+                        {{trade.status}}
                     </div>
                 </div>
                 <div class="row spacer">
@@ -119,6 +122,7 @@
         </div>
     </div>
 </div>
+<!-- TODO trade references -->
 <div class="row">
     <div class="col-xs-6">
         <h3 class="visible-xs-block">

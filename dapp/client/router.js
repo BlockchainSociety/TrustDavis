@@ -26,7 +26,15 @@ Router.map(function() {
 
     this.route('tradeDetails', {
         path: '/trade/:tradeId',
-        template: 'tradeDetails'
+        template: 'tradeDetails',
+        data: function() {
+            return {
+                trade: Trades.findOne({_id: this.params.tradeId})
+            };
+        },
+        waitOn: function() {
+            return Meteor.subscribe('trade', this.params.tradeId);
+        }
     });
 
     this.route('references', {
