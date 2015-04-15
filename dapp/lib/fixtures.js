@@ -60,14 +60,14 @@ Fixtures = {
     ],
     references: [
         {
-            id: 'f7009765',
+            _id: '7oZqjZuXMsR3cQoY6',
             traderId: '91c24063',
             maxLiability: 12,
             premiumPct: 10,
             lockedLiability: 6
         },
         {
-            id: '812d3340',
+            _id: 'AeRB2zLHcNrBKZDpr',
             traderId: '12345678',
             maxLiability: 0,
             premiumPct: 0,
