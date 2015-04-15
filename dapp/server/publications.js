@@ -1,5 +1,5 @@
-Meteor.publish("trades", function() {
-    // TODO limit to user trades / specific trades
+Meteor.publish("my_trades", function() {
+    // TODO limit to user specific trades
     return [
         Trades.find()
     ]
@@ -14,14 +14,21 @@ Meteor.publish("trade", function(tradeId) {
     ];
 });
 
-
-Meteor.publish("contacts", function() {
+Meteor.publish("my_references", function() {
+    // TODO limit to user specific references
     return [
-        Contacts.find()
+        References.find()
     ]
 });
 
-Meteor.publish("contacts", function(contactId) {
+Meteor.publish("my_contacts", function() {
+    check(arguments, [Match.Any]);
+    return [
+        Contacts.find()
+    ];
+});
+
+Meteor.publish("contact", function(contactId) {
     check(arguments, [Match.Any]);
     return [
         Contacts.find({

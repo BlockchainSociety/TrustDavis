@@ -2,52 +2,14 @@ Contacts = new Mongo.Collection("contacts");
 
 Contacts.attachSchema(
   new SimpleSchema({
-    type: {
+    contactId: {
       type: String,
-      label: "Trade Type",
-      allowedValues: TRADE_TYPES
+      label: "Contact Id"
     },
-    description: {
+    name: {
       type: String,
-      label: "Description",
-      max: 32
+      label: "Contact Alias"
     },
-    price: {
-      type: Number,
-      label: "Price",
-      min: 0
-    },
-    buyerId: {
-      type: String,
-      label: "Buyer User Id",
-      optional: true
-    },
-    sellerId: {
-      type: String,
-      label: "Seller User Id",
-      optional: true
-    },
-    status: {
-      type: String,
-      label: "Trade Status",
-      allowedValues: TRADE_STATUSES,
-      defaultValue: "new"
-    },
-    expiration: {
-      type: Date,
-    },
-    escrowPct: {
-      type: Number,
-      label: "Escrow Percentage",
-      min: 0,
-      max: 100
-    },
-    insurancePct: {
-      type: Number,
-      label: "Insurance Percentage",
-      min: 0,
-      max: 100
-    }
   })
 );
 

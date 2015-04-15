@@ -20,7 +20,7 @@ Router.map(function() {
             };
         },
         waitOn: function() {
-            return Meteor.subscribe('trades');
+            return Meteor.subscribe('my_trades');
         }
     });
 
@@ -39,7 +39,15 @@ Router.map(function() {
 
     this.route('references', {
         path: '/references',
-        template: 'references'
+        template: 'references',
+        data: function() {
+            return {
+                myReferences: References.find()
+            };
+        },
+        waitOn: function() {
+            return Meteor.subscribe('my_references');
+        }
     });
 
     this.route('contacts', {
