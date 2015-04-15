@@ -1,3 +1,105 @@
 <template name="trades">
     <h2>Trades</h2>
+
+    <div class="panel panel-default">
+        <!-- TODO: Fix Grid Layout -->
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        I want to <strong>sell</strong>
+                    </span>
+                    <input type="text" class="form-control" placeholder="description">
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        for USD
+                    </span>
+                    <input type="number" min="0" step="0.01" class="form-control small" placeholder="0.00">
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        This offer is <strong>valid for 30 days</strong> (until 2015-05-15)
+                    </span>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Create</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Your Active Trades</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Counterparty</th>
+                    <th>Status</th>
+                    <th>Expiration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>sell</td>
+                    <td><a href="#">Monkey</a></td>
+                    <td>USD 10</td>
+                    <td>Not claimed</td>
+                    <td>NEW</td>
+                    <td>2015-05-14</td>
+                </tr>
+                <tr>
+                    <td>sell</td>
+                    <td><a href="#">Monkey</a></td>
+                    <td>USD 10</td>
+                    <td>Not claimed</td>
+                    <td>NEW</td>
+                    <td>2015-05-14</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Your Closed Trades</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Counterparty</th>
+                    <th>Status</th>
+                    <th>Expiration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>sell</td>
+                    <td><a href="#">Monkey</a></td>
+                    <td>USD 10</td>
+                    <td>Not claimed</td>
+                    <td>CANCELLED</td>
+                    <td>2015-05-14</td>
+                </tr>
+                <tr>
+                    <td>sell</td>
+                    <td><a href="#">Monkey</a></td>
+                    <td>USD 10</td>
+                    <td>Not claimed</td>
+                    <td>CANCELLED</td>
+                    <td>2015-05-14</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
