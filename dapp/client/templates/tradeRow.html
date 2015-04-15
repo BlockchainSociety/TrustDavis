@@ -1,10 +1,10 @@
 <template name="tradeRow">
     <tr>
         <td>{{type}}</td>
-        <td><a href="{{pathFor route='tradeDetails' tradeId=id}}">{{description}}</a></td>
+        <td><a href="{{pathFor route='tradeDetails' tradeId=_id}}">{{description}}</a></td>
         <td>USD {{price}}</td>
         <td>Not claimed</td>
-        <td>{{state}}</td>
-        <td>{{expiration}}</td>
+        <td>{{status}}</td>
+        <td>{{formatDate expiration}}</td>
     </tr>
 </template>

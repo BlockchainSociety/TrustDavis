@@ -1,6 +1,9 @@
 Router.configure({
-   layoutTemplate: 'layout'
+    layoutTemplate: 'layout',
+    loadingTemplate: 'loading',
 });
+
+// TODO subscription manager
 
 Router.map(function() {
     this.route('/', function() {
@@ -9,7 +12,16 @@ Router.map(function() {
 
     this.route('trades', {
         path: '/trades',
-        template: 'trades'
+        template: 'trades',
+        data: function() {
+            return {
+                activeTrades: Trades.find({status: {$ne: 'cancelled'}}),
+                closedTrades: Trades.find({status: 'cancelled'})
+            };
+        },
+        waitOn: function() {
+            return Meteor.subscribe('trades');
+        }
     });
 
     this.route('tradeDetails', {

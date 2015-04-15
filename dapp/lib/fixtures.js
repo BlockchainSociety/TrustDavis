@@ -6,14 +6,14 @@ Fixtures = {
     },
     trades: [
         {
-            id: 'f70097659f329a09',
+            _id: "kGErvKsgiLSNDffh6",
             type: 'buy',
             description: 'Garden gnome',
             price: 12,
             buyerId: '1a73636d',
             sellerId: '91c24063',
-            state: 'NEW',
-            expiration: '31/12/2014',
+            status: 'new',
+            expiration: '2014-12-31',
             escrowPct: 100.0,
             insurancePct: 50.0,
             references: [{
@@ -24,13 +24,13 @@ Fixtures = {
             }]
         },
         {
-            id: 'e92113a5cb209c12',
+            _id: 'SLsL9iQs6cgujmQEz',
             type: 'sell',
             description: 'Lawnmower',
             price: 66,
             sellerId: '1a73636d',
-            state: 'NEW',
-            expiration: '15/10/2014',
+            status: 'new',
+            expiration: '2014-10-15',
             escrowPct: 100.0,
             insurancePct: 50.0,
             references: [{
@@ -41,13 +41,13 @@ Fixtures = {
             }]
         },
         {
-            id: '91e26cc0c4ec28112',
+            _id: 'GFaGCaaNKPCbaF2vw',
             type: 'sell',
             description: 'Monkey',
             price: 42,
             sellerId: '1a73636d',
-            state: 'CANCELLED',
-            expiration: '15/10/2014',
+            status: 'cancelled',
+            expiration: '2014-10-15',
             escrowPct: 100.0,
             insurancePct: 50.0,
             references: [{
