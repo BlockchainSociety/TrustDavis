@@ -76,11 +76,13 @@ Fixtures = {
     ],
     contacts: [
         {
-            _id: '91c24063',
+            _id: 'neRJwJrCsffMdWwLq',
+            contactId: '91c24063',
             name: 'Andrew'
         },
         {
-            _id: 'f7009765',
+            _id: '2FP2G9emF5EJAmaDe',
+            contactId: 'f7009765',
             name: 'John'
         }
     ]
