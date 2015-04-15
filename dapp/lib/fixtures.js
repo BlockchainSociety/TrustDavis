@@ -74,14 +74,16 @@ Fixtures = {
             lockedLiability: 0
         }
     ],
-    contacts: {
-        '91c24063': {
-            id: '91c24063',
+    contacts: [
+        {
+            _id: 'neRJwJrCsffMdWwLq',
+            contactId: '91c24063',
             name: 'Andrew'
         },
-        'f7009765': {
-            id: 'f7009765',
+        {
+            _id: '2FP2G9emF5EJAmaDe',
+            contactId: 'f7009765',
             name: 'John'
         }
-    }
+    ]
 };

@@ -52,7 +52,15 @@ Router.map(function() {
 
     this.route('contacts', {
         path: '/contacts',
-        template: 'contacts'
+        template: 'contacts',
+        data: function() {
+            return {
+                myContacts: Contacts.find()
+            };
+        },
+        waitOn: function() {
+            return Meteor.subscribe('my_contacts');
+        }
     });
 
     this.route('userDetails', {

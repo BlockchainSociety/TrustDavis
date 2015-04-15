@@ -12,4 +12,11 @@ Meteor.startup(function () {
             References.insert(reference);
         });
     }
+
+    if (!Contacts.find().count()) {
+        _.each(Fixtures.contacts, function(contact) {
+            console.log("inserting contact fixture", contact._id);
+            Contacts.insert(contact);
+        });
+    }
 });

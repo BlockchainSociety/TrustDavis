@@ -20,3 +20,19 @@ Meteor.publish("my_references", function() {
         References.find()
     ];
 });
+
+Meteor.publish("my_contacts", function() {
+    check(arguments, [Match.Any]);
+    return [
+        Contacts.find()
+    ];
+});
+
+Meteor.publish("contact", function(contactId) {
+    check(arguments, [Match.Any]);
+    return [
+        Contacts.find({
+          _id: contactId
+        })
+    ];
+});
