@@ -1,3 +1,145 @@
 <template name="tradeDetails">
-    <h2>Trade Details</h2>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                Trade Summary
+                </h3>
+            </div>
+            
+            <div class="panel-body">
+                <table class="table table-condensed table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Trade ID</td>
+                            <td>
+                                <span>id</span>
+                                <button type="button" class="btn btn-default btn-xs">
+                                <i class="fa fa-files-o fa-lg">
+                                </i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Seller </span>
+                                <span>(you)</span>
+                            </td>
+                            <td>
+                                <a href="#" class="">
+
+                                <span>name</span>
+                                <span>(</span>
+                                <span>key</span>
+                                <span>)</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span>Buyer </span></td>
+                            <td>Not claimed</td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>dffdfd</td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td>
+                                <span>USD</span>
+                                <span>10</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Valid Until</td>
+                            <td>
+                                <span>2015-05-14</span>
+                                <span>(</span>
+                                <span>in a month</span>
+                                <span>)</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                Status
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4">
+                        Escrow
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{this.props.pct}" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+                                <span>0</span>
+                                <span>%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        Insurance
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{this.props.pct}" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+                                <span>0</span>
+                                <span>%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row spacer">
+                    <div class="col-xs-4">
+                        Status
+                    </div>
+                    <div class="col-xs-8">
+                        NEW
+                    </div>
+                </div>
+                <div class="row spacer">
+                    <div class="col-xs-4">
+                        <button type="button" class="btn btn-default">
+                        Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <h3 class="visible-xs-block">
+        References
+        </h3>
+        <h3 class="hidden-xs">
+        References for this trade
+        </h3>
+    </div>
+    <div class="col-xs-6 text-right">
+    </div>
+</div>
+<table class="tradeReferenceList table table-striped">
+    <thead>
+        <tr>
+            <th>Insurer</th>
+            <th>Liability</th>
+            <th>Premium</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 </template>
