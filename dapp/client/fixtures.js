@@ -58,21 +58,22 @@ Fixtures = {
             }]
         }
     ],
-    referencesList: [
-    {
-        id: 'f7009765',
-        traderId: '91c24063',
-        maxLiability: 12,
-        premiumPct: 10,
-        lockedLiability: 6
-    },
-    {
-        id: '812d3340',
-        traderId: '12345678',
-        maxLiability: 0,
-        premiumPct: 0,
-        lockedLiability: 0
-    }],
+    references: [
+        {
+            id: 'f7009765',
+            traderId: '91c24063',
+            maxLiability: 12,
+            premiumPct: 10,
+            lockedLiability: 6
+        },
+        {
+            id: '812d3340',
+            traderId: '12345678',
+            maxLiability: 0,
+            premiumPct: 0,
+            lockedLiability: 0
+        }
+    ],
     contacts: {
         '91c24063': {
             id: '91c24063',

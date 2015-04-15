@@ -1,0 +1,21 @@
+<template name="referenceTable">
+    <div class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Trader</th>
+                    <th>Max Liability</th>
+                    <th>Premium</th>
+                    <th>Locked Liability</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each references}}
+                    {{> referenceRow}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
