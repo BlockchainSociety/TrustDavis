@@ -1,8 +1,8 @@
 Meteor.publish("my_trades", function() {
-    // TODO limit to user specific trades
+    // TODO check that userId is defined and limit to user specific trades
     return [
         Trades.find()
-    ]
+    ];
 });
 
 Meteor.publish("trade", function(tradeId) {
@@ -15,8 +15,8 @@ Meteor.publish("trade", function(tradeId) {
 });
 
 Meteor.publish("my_references", function() {
-    // TODO limit to user specific references
+    // TODO check that userId is defined and limit to user specific references
     return [
         References.find()
-    ]
+    ];
 });

@@ -8,7 +8,9 @@ Tracker.autorun(function() {
             userId = Random.id();
             localStorage.setItem(TRUSTDAVIS_UID, userId);
         }
+    }
 
+    if (Meteor.status().connected) {
         Meteor.call('fakelogin', userId, function(err) {
             if (!err) {
                 Meteor.connection.setUserId(userId);
