@@ -5,4 +5,11 @@ Meteor.startup(function () {
             Trades.insert(trade);
         });
     }
+
+    if (!Contacts.find().count()) {
+        _.each(Fixtures.contacts, function(contact) {
+            console.log("inserting contact fixture", contact._id);
+            Contacts.insert(contact);
+        });
+    }
 });
