@@ -3,7 +3,6 @@
 AutoForm.addHooks(['newTradeForm'], {
     before: {
         method: function(doc) {
-            doc.expiration = Helpers.tradeValidUntil();
             Trades.simpleSchema().clean(doc);
             console.log("Trades doc with auto values", doc);
             this.result(doc);

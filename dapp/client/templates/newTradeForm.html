@@ -2,6 +2,8 @@
     <div class="panel panel-default">
         <!-- TODO: Fix Grid Layout -->
         {{#autoForm schema=newTradeFormSchema id="newTradeForm" type="method" meteormethod="newTrade"}}
+            {{> afFieldInput name="type" value=type type="hidden"}}
+            {{> afFieldInput name="expiration" value=validUntil type="hidden"}}
             <div class="row">
                 <div class="col-lg-5{{#if afFieldIsInvalid name='description'}} has-error{{/if}}">
                     <div class="input-group">
