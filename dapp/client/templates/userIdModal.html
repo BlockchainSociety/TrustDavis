@@ -1,0 +1,20 @@
+<template name="userIdModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">User ID for {{name}}</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>This is the user ID for "{{name}}", the Ethereum public key of the person:</p>
+                    <pre>{{userId}}</pre>
+                </div>
+                <div class="modal-footer">
+                    <button id="close" class="btn btn-default">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

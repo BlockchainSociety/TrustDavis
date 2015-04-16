@@ -1,5 +1,11 @@
 "use strict";
 
+Template.userDetails.events({
+    "click #btn-show-user-id": function (event) {
+        Modal.show("userIdModal", {userId: this.user._id, name: this.user.name});
+    }
+});
+
 Template.userDetails.helpers({
     tradesTitle : function () {
         return this.user.name + "'s Trades";

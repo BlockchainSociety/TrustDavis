@@ -45,6 +45,7 @@ nemo64:bootstrap@3.3.4_2
 nemo64:bootstrap-data@3.3.4_1
 observe-sequence@1.0.6
 ordered-dict@1.0.3
+peppelg:bootstrap-3-modal@1.0.3
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
