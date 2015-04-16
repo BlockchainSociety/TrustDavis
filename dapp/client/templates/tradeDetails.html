@@ -31,8 +31,7 @@
                             <td>
                                 {{#if trade.sellerId}}
                                     <a href="{{pathFor route='userDetails' userId=trade.sellerId}}">
-                                        <!-- TODO Seller Name -->
-                                        <span>SELLERNAME</span>
+                                        <span>{{userName trade.sellerId}}</span>
                                         <span>(</span>
                                         <span>{{trade.sellerId}}</span>
                                         <span>)</span>
@@ -52,8 +51,7 @@
                             <td>
                                 {{#if trade.buyerId}}
                                     <a href="{{pathFor route='userDetails' userId=trade.buyerId}}">
-                                        <!-- TODO Buyer Name -->
-                                        <span>BUYERNAME</span>
+                                        <span>{{userName trade.buyerId}}</span>
                                         <span>(</span>
                                         <span>{{trade.buyerId}}</span>
                                         <span>)</span>

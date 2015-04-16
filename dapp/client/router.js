@@ -4,6 +4,7 @@ Router.configure({
 });
 
 // TODO subscription manager
+Meteor.subscribe('all_users');
 
 Router.map(function() {
     this.route('/', function() {
@@ -20,7 +21,7 @@ Router.map(function() {
             };
         },
         waitOn: function() {
-            return Meteor.subscribe('my_trades');
+            return Meteor.subscribe('user_trades', Meteor.connection.userId());
         }
     });
 
@@ -46,7 +47,7 @@ Router.map(function() {
             };
         },
         waitOn: function() {
-            return Meteor.subscribe('my_references');
+            return Meteor.subscribe('user_references', Meteor.connection.userId());
         }
     });
 
