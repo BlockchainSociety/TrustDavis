@@ -61,5 +61,11 @@ Trades.attachSchema(
 Trades.helpers({
     canBeCancelled: function() {
         return this.status === "new";
+    },
+    userIsBuyer: function() {
+        return this.buyerId === Meteor.connection.userId();
+    },
+    userIsSeller: function() {
+        return this.sellerId === Meteor.connection.userId();
     }
 });

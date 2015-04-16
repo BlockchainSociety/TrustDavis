@@ -3,6 +3,11 @@
 AutoForm.addHooks(['newTradeForm'], {
     before: {
         method: function(doc) {
+            if (doc.type === "sell") {
+                doc.sellerId = Meteor.connection.userId();
+            } else {
+                doc.buyerId = Meteor.connection.userId();
+            }
             Trades.simpleSchema().clean(doc);
             console.log("Trades doc with auto values", doc);
             this.result(doc);

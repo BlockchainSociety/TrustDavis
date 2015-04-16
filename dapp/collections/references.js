@@ -2,6 +2,10 @@ References = new Mongo.Collection("references");
 
 References.attachSchema(
   new SimpleSchema({
+    insurerId: {
+      type: String,
+      label: "Insurer User Id"
+    },
     traderId: {
       type: String,
       label: "Trader User Id"

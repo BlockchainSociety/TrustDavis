@@ -3,6 +3,7 @@
 AutoForm.addHooks(['newReferenceForm'], {
     before: {
         method: function(doc) {
+            doc.insurerId = Meteor.connection.userId();
             References.simpleSchema().clean(doc);
             console.log("References doc with auto values", doc);
             this.result(doc);

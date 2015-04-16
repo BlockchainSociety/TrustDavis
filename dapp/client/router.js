@@ -70,13 +70,14 @@ Router.map(function() {
             return {
                 user: Users.findOne({_id: this.params.userId}),
                 userTrades: Trades.find({ $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ] }),
-                // user_references:
+                userReferences: References.find({insurerId: this.params.userId})
             };
         },
         waitOn: function() {
             return [
                 Meteor.subscribe('user', this.params.userId),
-                Meteor.subscribe('user_trades', this.params.userId)
+                Meteor.subscribe('user_trades', this.params.userId),
+                Meteor.subscribe('user_references', this.params.userId)
             ];
         }
     });

@@ -45,3 +45,10 @@ Meteor.publish("user_trades", function(userId) {
         })
     ];
 });
+
+Meteor.publish("user_references", function(userId) {
+    check(arguments, [Match.Any]);
+    return [
+        References.find({insurerId: userId})
+    ];
+});

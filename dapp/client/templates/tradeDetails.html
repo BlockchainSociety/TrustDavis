@@ -15,7 +15,6 @@
                             <td>Trade ID</td>
                             <td>
                                 <span>{{trade._id}}</span>
-                                <!-- TODO modal -->
                                 <button type="button" class="btn btn-default btn-xs" id="btn-show-trade-id">
                                 <i class="fa fa-files-o fa-lg">
                                 </i>
@@ -24,24 +23,45 @@
                         </tr>
                         <tr>
                             <td>
-                                <span>Seller </span>
-                                <!-- TODO Seller -->
-                                <span>(you)</span>
+                                <span>Seller</span>
+                                {{#if trade.userIsSeller}}
+                                    <span>(you)</span>
+                                {{/if}}
                             </td>
                             <td>
-                                <a href="{{pathFor route='userDetails' userId='xyzzy'}}" class="">
-
-                                <span>name</span>
-                                <span>(</span>
-                                <span>key</span>
-                                <span>)</span>
-                                </a>
+                                {{#if trade.sellerId}}
+                                    <a href="{{pathFor route='userDetails' userId=trade.sellerId}}">
+                                        <!-- TODO Seller Name -->
+                                        <span>SELLERNAME</span>
+                                        <span>(</span>
+                                        <span>{{trade.sellerId}}</span>
+                                        <span>)</span>
+                                    </a>
+                                {{else}}
+                                    Not claimed
+                                {{/if}}
                             </td>
                         </tr>
                         <tr>
-                            <td><span>Buyer </span></td>
-                            <!-- TODO Buyer -->
-                            <td>Not claimed</td>
+                            <td>
+                                <span>Buyer</span>
+                                {{#if trade.userIsBuyer}}
+                                    <span>(you)</span>
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if trade.buyerId}}
+                                    <a href="{{pathFor route='userDetails' userId=trade.buyerId}}">
+                                        <!-- TODO Buyer Name -->
+                                        <span>BUYERNAME</span>
+                                        <span>(</span>
+                                        <span>{{trade.buyerId}}</span>
+                                        <span>)</span>
+                                    </a>
+                                {{else}}
+                                    Not claimed
+                                {{/if}}
+                            </td>
                         </tr>
                         <tr>
                             <td>Description</td>
