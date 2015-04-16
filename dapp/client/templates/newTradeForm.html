@@ -1,23 +1,29 @@
 <template name="newTradeForm">
     <div class="panel panel-default">
         <!-- TODO: Fix Grid Layout -->
-        <form class="new-trade">
+        {{#autoForm schema=newTradeFormSchema id="newTradeForm" type="method" meteormethod="newTrade"}}
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-5{{#if afFieldIsInvalid name='description'}} has-error{{/if}}">
                     <div class="input-group">
                         <span class="input-group-addon">
                             I want to <strong>{{type}}</strong>
                         </span>
-                        <input name="description" type="text" class="form-control" placeholder="description">
+                        {{> afFieldInput name='description' placeholder="schemaLabel"}}
                     </div>
+                    {{#if afFieldIsInvalid name='description'}}
+                    <span class="help-block">{{afFieldMessage name='description'}}</span>
+                    {{/if}}
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2{{#if afFieldIsInvalid name='price'}} has-error{{/if}}">
                     <div class="input-group">
                         <span class="input-group-addon">
                         for USD
                         </span>
-                        <input name="price" type="number" min="0" step="0.01" class="form-control small" placeholder="0.00">
+                        {{> afFieldInput name='price' placeholder="0.00" step="0.01"}}
                     </div>
+                    {{#if afFieldIsInvalid name='price'}}
+                    <span class="help-block">{{afFieldMessage name='price'}}</span>
+                    {{/if}}
                 </div>
                 <div class="col-lg-5">
                     <div class="input-group">
@@ -30,6 +36,6 @@
                     </div>
                 </div>
             </div>
-        </form>
+        {{/autoForm}}
     </div>
 </template>

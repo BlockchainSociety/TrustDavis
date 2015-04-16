@@ -7,7 +7,8 @@ Trades.attachSchema(
     type: {
       type: String,
       label: "Trade Type",
-      allowedValues: TRADE_TYPES
+      allowedValues: TRADE_TYPES,
+      defaultValue: "sell"
     },
     description: {
       type: String,
@@ -38,7 +39,7 @@ Trades.attachSchema(
       defaultValue: "new"
     },
     expiration: {
-      type: Date,
+      type: Date
     },
     escrowPct: {
       type: Number,
