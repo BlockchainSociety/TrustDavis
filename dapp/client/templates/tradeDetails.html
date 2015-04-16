@@ -58,9 +58,8 @@
                             <td>Valid Until</td>
                             <td>
                                 <span>{{formatDate trade.expiration}}</span>
-                                <!-- TODO humanize date -->
                                 <span>(</span>
-                                <span>in a month</span>
+                                <span>{{formatDateFromNow trade.expiration}}</span>
                                 <span>)</span>
                             </td>
                         </tr>
@@ -83,7 +82,7 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="{{trade.escrowPct}}" aria-valuemin="0" aria-valuemax="100" style="width:{{trade.escrowPct}}%;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{trade.escrowPct}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width:{{trade.escrowPct}}%;">
                                 <span>{{trade.escrowPct}}</span>
                                 <span>%</span>
                             </div>
@@ -96,7 +95,7 @@
                     </div>
                     <div class="col-xs-8">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="{{trade.insurancePct}}" aria-valuemin="0" aria-valuemax="100" style="width:{{trade.insurancePct}}%;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{trade.insurancePct}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width:{{trade.insurancePct}}%;">
                                 <span>{{trade.insurancePct}}</span>
                                 <span>%</span>
                             </div>
