@@ -22,7 +22,7 @@
                     <td>Name</td>
                     <td>
                         <span>{{user.name}}</span>
-                        {{#if not_myself}}
+                        {{#if notMyself}}
                             <button type="button" class="btn btn-default">
                             Add to Contacts
                             </button>
@@ -31,16 +31,16 @@
                 </tr>
                 <tr>
                     <td>Trades</td>
-                    <td>{{trades_count}}</td>
+                    <td>{{tradesCount}}</td>
                 </tr>
                 <tr>
                     <td>References</td>
-                    <td>{{references_count}}</td>
+                    <td>{{referencesCount}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-{{> tradeTable title = trades_title trades = user_trades }}
-{{> referenceTable title = references_title }}
+{{> tradeTable title = tradesTitle trades = userTrades }}
+{{> referenceTable title = referencesTitle }}
 </template>

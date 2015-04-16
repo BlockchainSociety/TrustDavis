@@ -73,7 +73,9 @@ Fixtures = {
     references: [
         {
             _id: '7oZqjZuXMsR3cQoY6',
-            traderId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            traderId: '74GDdWHJ3JotoRgLy', // Mike
+            insurerId: 'PZWmf9YMJp3XsMjd5', // John
             maxLiability: 12,
             premiumPct: 10,
             lockedLiability: 6
