@@ -1,5 +1,7 @@
 Trades = new Mongo.Collection("trades");
 
+"use strict";
+
 Trades.attachSchema(
   new SimpleSchema({
     type: {
@@ -10,12 +12,14 @@ Trades.attachSchema(
     description: {
       type: String,
       label: "Description",
+      min: 1,
       max: 32
     },
     price: {
       type: Number,
       label: "Price",
-      min: 0
+      decimal: true,
+      min: 0.01
     },
     buyerId: {
       type: String,
@@ -40,17 +44,20 @@ Trades.attachSchema(
       type: Number,
       label: "Escrow Percentage",
       min: 0,
-      max: 100
+      max: 100,
+      defaultValue: 0
     },
     insurancePct: {
       type: Number,
       label: "Insurance Percentage",
       min: 0,
-      max: 100
+      max: 100,
+      defaultValue: 0
     }
   })
 );
 
+// TODO remove in favor of Metheor Methods
 Trades.allow({
   insert: function(userId, doc) {
     return userId && doc && userId === doc.userId;

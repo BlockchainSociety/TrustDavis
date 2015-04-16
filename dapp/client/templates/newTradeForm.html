@@ -1,33 +1,35 @@
 <template name="newTradeForm">
     <div class="panel panel-default">
         <!-- TODO: Fix Grid Layout -->
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                    I want to <strong>sell</strong>
-                    </span>
-                    <input type="text" class="form-control" placeholder="description">
+        <form class="new-trade">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            I want to <strong>{{type}}</strong>
+                        </span>
+                        <input name="description" type="text" class="form-control" placeholder="description">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                        for USD
+                        </span>
+                        <input name="price" type="number" min="0" step="0.01" class="form-control small" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            This offer is <strong>valid for {{validDays}} days</strong> (until {{validUntil}})
+                        </span>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Create</button>
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                    for USD
-                    </span>
-                    <input type="number" min="0" step="0.01" class="form-control small" placeholder="0.00">
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                    This offer is <strong>valid for 30 days</strong> (until 2015-05-15)
-                    </span>
-                    <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Create</button>
-                    </span>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </template>
