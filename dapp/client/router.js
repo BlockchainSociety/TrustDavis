@@ -69,7 +69,7 @@ Router.map(function() {
         data: function() {
             return {
                 user: Users.findOne({_id: this.params.userId}),
-                user_trades: Trades.find({ $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ] }),
+                userTrades: Trades.find({ $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ] }),
                 // user_references:
             };
         },

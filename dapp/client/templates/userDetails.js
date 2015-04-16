@@ -1,23 +1,23 @@
 "use strict";
 
 Template.userDetails.helpers({
-    trades_title : function () {
+    tradesTitle : function () {
         return this.user.name + "'s Trades";
     },
 
-    references_title : function () {
+    referencesTitle : function () {
         return this.user.name + "'s References";
     },
 
-    trades_count: function () {
-        return this.user_trades.count();
+    tradesCount: function () {
+        return this.userTrades.count();
     },
 
-    references_count: function () {
+    referencesCount: function () {
         return 0; // this.user_references.count();
     },
 
-    not_myself: function() {
+    notMyself: function() {
         return this.user._id != Meteor.connection.userId();
     }
 });
