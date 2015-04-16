@@ -68,11 +68,15 @@ Router.map(function() {
         template: 'userDetails',
         data: function() {
             return {
-                user: Users.findOne({_id: this.params.userId})
+                user: Users.findOne({_id: this.params.userId}),
+                user_trades: Trades.find({ $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ] })
             };
         },
         waitOn: function() {
-            return Meteor.subscribe('user', this.params.userId);
+            return [
+                Meteor.subscribe('user', this.params.userId),
+                Meteor.subscribe('user_trades', this.params.userId)
+            ];
         }
     });
 

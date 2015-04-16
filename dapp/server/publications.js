@@ -36,3 +36,12 @@ Meteor.publish("user", function(userId) {
         })
     ];
 });
+
+Meteor.publish("user_trades", function(userId) {
+    check(arguments, [Match.Any]);
+    return [
+        Trades.find({
+            $or : [ { buyerId: userId }, { sellerId: userId } ]
+        })
+    ];
+});

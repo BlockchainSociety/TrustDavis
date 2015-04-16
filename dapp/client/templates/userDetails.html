@@ -1,5 +1,5 @@
 <template name="userDetails">
 {{> userSummary }}
-{{> userTrades }}
-{{> userReferences }}
+{{> tradeTable title = "User Trades" trades = user_trades }}
+{{> referenceTable title = "User References" }}
 </template>
