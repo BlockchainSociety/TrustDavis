@@ -3,7 +3,18 @@
         <td>{{type}}</td>
         <td><a href="{{pathFor route='tradeDetails' tradeId=_id}}">{{description}}</a></td>
         <td>USD {{price}}</td>
-        <td>Not claimed</td>
+        <td>
+            {{#if counterPartyId}}
+                <a href="{{pathFor route='userDetails' userId=counterPartyId}}">
+                    <span>{{userName counterPartyId}}</span>
+                    <span>(</span>
+                    <span>{{counterPartyId}}</span>
+                    <span>)</span>
+                </a>
+            {{else}}
+                Not claimed
+            {{/if}}
+        </td>
         <td>{{status}}</td>
         <td>{{formatDate expiration}}</td>
     </tr>

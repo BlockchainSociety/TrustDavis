@@ -62,6 +62,13 @@ Trades.helpers({
     canBeCancelled: function() {
         return this.status === "new";
     },
+    counterPartyId: function() {
+        if (this.type == "sell") {
+            return this.buyerId;
+        } else {
+            return this.sellerId;
+        }
+    },
     userIsBuyer: function() {
         return this.buyerId === Meteor.connection.userId();
     },
