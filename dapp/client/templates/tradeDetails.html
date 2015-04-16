@@ -111,11 +111,13 @@
                     </div>
                 </div>
                 <div class="row spacer">
-                    <div class="col-xs-4">
-                        <button type="button" class="btn btn-default" id="btn-cancel">
-                        Cancel
-                        </button>
-                    </div>
+                    {{#if trade.canBeCancelled}}
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-default" id="btn-cancel">
+                            Cancel
+                            </button>
+                        </div>
+                    {{/if}}
                 </div>
             </div>
         </div>

@@ -57,3 +57,9 @@ Trades.attachSchema(
     }
   })
 );
+
+Trades.helpers({
+    canBeCancelled: function() {
+        return this.status === "new";
+    }
+});
