@@ -9,7 +9,8 @@ References.attachSchema(
     lockedLiability: {
       type: Number,
       label: "Locked Liability",
-      min: 0
+      min: 0,
+      defaultValue: 0
     },
     maxLiability: {
       type: Number,
@@ -24,17 +25,3 @@ References.attachSchema(
     }
   })
 );
-
-References.allow({
-  insert: function(userId, doc) {
-    return userId && doc && userId === doc.userId;
-  },
-  update: function(userId, doc, fieldNames, modifier) {
-    return userId && doc && userId === doc.userId;
-  },
-  remove: function(userId, doc) {
-    return userId && doc && userId === doc.userId;
-  },
-  fetch: ['userId']
-});
-
