@@ -19,4 +19,11 @@ Meteor.startup(function () {
             Contacts.insert(contact);
         });
     }
+
+    if (!Users.find().count()) {
+        _.each(Fixtures.users, function(user) {
+            console.log("inserting user fixture", user._id);
+            Users.insert(user);
+        });
+    }
 });

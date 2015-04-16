@@ -1,15 +1,20 @@
-Contacts = new Mongo.Collection("contacts");
+Users = new Mongo.Collection("users");
 
-Contacts.attachSchema(
+Users.attachSchema(
   new SimpleSchema({
     name: {
       type: String,
-      label: "Contact Alias"
+      label: "User Alias"
     },
+    deposit: {
+      type: Number,
+      label: 'Deposit',
+      min: 0
+    }
   })
 );
 
-Contacts.allow({
+Users.allow({
   insert: function(userId, doc) {
     return userId && doc && userId === doc.userId;
   },

@@ -28,11 +28,11 @@ Meteor.publish("my_contacts", function() {
     ];
 });
 
-Meteor.publish("contact", function(contactId) {
+Meteor.publish("user", function(userId) {
     check(arguments, [Match.Any]);
     return [
-        Contacts.find({
-          _id: contactId
+        Users.find({
+          _id: userId
         })
     ];
 });

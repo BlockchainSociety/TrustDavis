@@ -65,7 +65,15 @@ Router.map(function() {
 
     this.route('userDetails', {
         path: '/user/:userId',
-        template: 'userDetails'
+        template: 'userDetails',
+        data: function() {
+            return {
+                user: Users.findOne({_id: this.params.userId})
+            };
+        },
+        waitOn: function() {
+            return Meteor.subscribe('user', this.params.userId);
+        }
     });
 
     this.route('notfound', {

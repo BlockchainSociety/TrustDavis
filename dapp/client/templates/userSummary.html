@@ -1,0 +1,43 @@
+<template name="userSummary">
+<!-- <h2>User Details</h2> -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+        <span>User Summary: </span>
+        <span>{{user.name}}</span>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-condensed table-striped">
+            <tbody>
+                <tr>
+                    <td>User ID</td>
+                    <td>
+                        <span>{{user._id}}</span>
+                        <button type="button" class="btn btn-default btn-xs">
+                            <i class="fa fa-files-o fa-lg"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <span>{{user.name}}</span>
+                        <button type="button" class="btn btn-default">
+                        Add to Contacts
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trades</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>References</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</template>
