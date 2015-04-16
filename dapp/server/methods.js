@@ -19,4 +19,10 @@ Meteor.methods({
         var newReferenceId = References.insert(reference);
         return {_id: newReferenceId};
     },
+    deleteReference: function(referenceId) {
+        check(referenceId, String);
+        // TODO validate status and that user is owner
+        References.remove({_id: referenceId});
+        return {_id: referenceId};
+    }
 });
