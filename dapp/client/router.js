@@ -15,13 +15,27 @@ Router.map(function() {
         path: '/trades',
         template: 'trades',
         data: function() {
+            var userId = Meteor.connection.userId();
             return {
-                activeTrades: Trades.find({status: {$ne: 'cancelled'}}),
-                closedTrades: Trades.find({status: 'cancelled'})
+                activeTrades: Trades.find({
+                    $or : [ { buyerId: userId }, { sellerId: userId } ],
+                    status: {$ne: 'cancelled'}
+                }),
+                openTrades: Trades.find({
+                    $or : [ { buyerId: null }, { sellerId: null } ],
+                    status: {$ne: 'cancelled'}
+                }),
+                closedTrades: Trades.find({
+                    $or : [ { buyerId: userId }, { sellerId: userId } ],
+                    status: 'cancelled'
+                })
             };
         },
         waitOn: function() {
-            return Meteor.subscribe('user_trades', Meteor.connection.userId());
+            return [
+                Meteor.subscribe('user_trades', Meteor.connection.userId()),
+                Meteor.subscribe('open_trades')
+            ];
         }
     });
 
@@ -70,7 +84,9 @@ Router.map(function() {
         data: function() {
             return {
                 user: Users.findOne({_id: this.params.userId}),
-                userTrades: Trades.find({ $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ] }),
+                userTrades: Trades.find({
+                    $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ]
+                }),
                 userReferences: References.find({insurerId: this.params.userId})
             };
         },

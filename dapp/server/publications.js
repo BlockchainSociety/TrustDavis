@@ -30,6 +30,15 @@ Meteor.publish("user", function(userId) {
     ];
 });
 
+Meteor.publish("open_trades", function() {
+    check(arguments, [Match.Any]);
+    return [
+        Trades.find({
+            $or : [ { buyerId: null }, { sellerId: null } ]
+        })
+    ];
+});
+
 Meteor.publish("user_trades", function(userId) {
     check(arguments, [Match.Any]);
     return [
