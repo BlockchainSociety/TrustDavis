@@ -2,19 +2,16 @@ Fixtures = {
     users: [
         {
             _id : '74GDdWHJ3JotoRgLy',
-            // userId: '1a73636d',
             name: 'Mike',
             deposit: 12
         },
         {
             _id: 'qmxstpBMSrHwf5N7g',
-            // userId: '91c24063',
             name: 'Andrew',
             deposit: 1
         },
         {
             _id: 'PZWmf9YMJp3XsMjd5',
-            // userId: 'f7009765',
             name: 'John',
             deposit: 6
         }
@@ -92,13 +89,11 @@ Fixtures = {
     // TODO : Just reference Users?
     contacts: [
         {
-            _id: 'neRJwJrCsffMdWwLq',
-            contactId: '91c24063',
+            _id: 'qmxstpBMSrHwf5N7g',
             name: 'Andrew'
         },
         {
-            _id: '2FP2G9emF5EJAmaDe',
-            contactId: 'f7009765',
+            _id: 'PZWmf9YMJp3XsMjd5',
             name: 'John'
         }
     ]
