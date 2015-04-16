@@ -17,7 +17,7 @@ Template.userDetails.helpers({
         return 0; // this.user_references.count();
     },
 
-    myself: function() {
+    not_myself: function() {
         return this.user._id != Meteor.connection.userId();
     }
 });
