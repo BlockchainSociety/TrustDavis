@@ -69,7 +69,8 @@ Fixtures = {
             traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             againstId: 'qmxstpBMSrHwf5N7g', // Sally / seller
-            amount: 100
+            amount: 100,
+            premiumPct: 5
         },
         {
             _id: 'M5zW87MjWCtBiGRvL',
@@ -77,7 +78,8 @@ Fixtures = {
             traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             againstId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
-            amount: 50
+            amount: 50,
+            premiumPct: 1
         },
         {
             _id: 'bcoLELMoA3oHdKLXd',
@@ -85,7 +87,8 @@ Fixtures = {
             traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             fromId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
             againstId: 'qmxstpBMSrHwf5N7g', // Sally / seller
-            amount: 50
+            amount: 50,
+            premiumPct: 8
         },
         {
             _id: 'NXog25NXRq74EMMLx',
@@ -93,7 +96,8 @@ Fixtures = {
             traderId: 'qmxstpBMSrHwf5N7g', // Sally / seller
             fromId: 'GhpmzJz9aodzkbWaR', // Mike / v3
             againstId: '74GDdWHJ3JotoRgLy', // Bob / buyer
-            amount: 150
+            amount: 150,
+            premiumPct: 5
         }
     ],
     peers: [
@@ -102,56 +106,64 @@ Fixtures = {
             fromId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             toId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             lockedLiability: 0,
-            maxLiability: 0
+            maxLiability: 0,
+            premiumPct: 0
         },
         {
             _id: 'p3SEPCJcQk62gQmwK',
             fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             toId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             lockedLiability: 150,
-            maxLiability: 150
+            maxLiability: 150,
+            premiumPct: 0
         },
         {
             _id: 'itcGwbhTW7QFs78nk',
             fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             toId: 'qmxstpBMSrHwf5N7g', // Sally / seller
             lockedLiability: 100,
-            maxLiability: 100
+            maxLiability: 100,
+            premiumPct: 5
         },
         {
             _id: 'y72HWQgztkha8Mx4S',
             fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             toId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
             lockedLiability: 50,
-            maxLiability: 50
+            maxLiability: 50,
+            premiumPct: 1
         },
         {
             _id: 'vsmETMKbD8fyCHMPX',
             fromId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
             toId: 'qmxstpBMSrHwf5N7g', // Sally / seller
             lockedLiability: 50,
-            maxLiability: 50
+            maxLiability: 50,
+            premiumPct: 8
         },
         {
             _id: 'HbqC6FRF7hnCgxEWt',
             fromId: 'qmxstpBMSrHwf5N7g', // Sally / seller,
             toId: 'GhpmzJz9aodzkbWaR', // Mike / v3
             lockedLiability: 0,
-            maxLiability: 0
+            maxLiability: 0,
+            premiumPct: 0
         },
         {
             _id: 'vjCq7s8K64YyvxKT7',
             fromId: 'GhpmzJz9aodzkbWaR', // Mike / v3,
             toId: 'qmxstpBMSrHwf5N7g', // Sally / seller,
             lockedLiability: 150,
-            maxLiability: 150
+            maxLiability: 150,
+            premiumPct: 5
         },
         {
             _id: 'NzKi9Trb4FWyw7kaM',
             fromId: 'GhpmzJz9aodzkbWaR', // Mike / v3,
             toId: '74GDdWHJ3JotoRgLy', // Bob / buyer,
             lockedLiability: 150,
-            maxLiability: 150
+            maxLiability: 150,
+            premiumPct: 5
         },
     ]
 };
