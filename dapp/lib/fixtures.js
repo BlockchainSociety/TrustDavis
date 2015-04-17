@@ -2,90 +2,98 @@ Fixtures = {
     users: [
         {
             _id : '74GDdWHJ3JotoRgLy',
-            name: 'Mike',
-            deposit: 12
+            name: 'Bob', // Buyer
+            deposit: 0
         },
         {
             _id: 'qmxstpBMSrHwf5N7g',
-            name: 'Andrew',
-            deposit: 1
+            name: 'Sally', // Seller
+            deposit: 0
         },
         {
             _id: 'PZWmf9YMJp3XsMjd5',
-            name: 'John',
-            deposit: 6
+            name: 'Kent', // v1
+            deposit: 150
+        },
+        {
+            _id: 'DLKZZeSJEBFQKLNGT',
+            name: 'Lex', // v2
+            deposit: 50
+        },
+        {
+            _id: 'GhpmzJz9aodzkbWaR',
+            name: 'Mike', // v3
+            deposit: 150
         }
     ],
     trades: [
         {
             _id: 'kGErvKsgiLSNDffh6',
-            type: 'buy',
+            type: 'sell',
             description: 'Garden gnome',
-            price: 12,
-            buyerId: '74GDdWHJ3JotoRgLy', // Mike
-            sellerId: 'qmxstpBMSrHwf5N7g', // Andrew
-            status: 'new',
-            expiration: '2014-12-31',
-            escrowPct: 100.0,
-            insurancePct: 50.0,
-            references: [{
-                id: 'f7009765',
-                insurerId: 'f7009765',
-                liability: 6,
-                premiumPct: 10.0
-            }]
+            price: 150,
+            buyerId: '74GDdWHJ3JotoRgLy', // Bob
+            sellerId: 'qmxstpBMSrHwf5N7g', // Sally
+            status: 'insured',
+            expiration: '2015-06-15',
+            buyerInsurancePct: 100.0,
+            sellerInsurancePct: 100.0
         },
         {
             _id: 'SLsL9iQs6cgujmQEz',
-            type: 'sell',
+            type: 'buy',
             description: 'Lawnmower',
             price: 66,
-            sellerId: '1a73636d',
+            buyerId: '74GDdWHJ3JotoRgLy', // Bob
             status: 'new',
             expiration: '2014-10-15',
             escrowPct: 100.0,
-            insurancePct: 50.0,
-            references: [{
-                id: 'f7009765', // ?? hmmm should just be _id to References ?
-                insurerId: 'f7009765',
-                liability: 6,
-                premiumPct: 10.0
-            }]
+            insurancePct: 50.0
         },
         {
             _id: 'GFaGCaaNKPCbaF2vw',
             type: 'sell',
             description: 'Monkey',
             price: 42,
-            sellerId: '1a73636d',
+            sellerId: 'qmxstpBMSrHwf5N7g', // Sally
             status: 'cancelled',
             expiration: '2014-10-15',
             escrowPct: 100.0,
-            insurancePct: 50.0,
-            references: [{
-                id: 'f7009765',
-                insurerId: 'f7009765',
-                liability: 6,
-                premiumPct: 10.0
-            }]
+            insurancePct: 50.0
         }
     ],
     references: [
         {
-            _id: '7oZqjZuXMsR3cQoY6',
+            _id: 'iPDyEpW3iro254vpj',
             tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
-            traderId: '74GDdWHJ3JotoRgLy', // Mike
-            insurerId: 'PZWmf9YMJp3XsMjd5', // John
-            maxLiability: 12,
-            premiumPct: 10,
-            lockedLiability: 6
+            traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
+            fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
+            againstId: 'qmxstpBMSrHwf5N7g', // Sally / seller
+            amount: 100
         },
         {
-            _id: 'AeRB2zLHcNrBKZDpr',
-            traderId: '12345678',
-            maxLiability: 0,
-            premiumPct: 0,
-            lockedLiability: 0
+            _id: 'M5zW87MjWCtBiGRvL',
+            tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
+            fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
+            againstId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
+            amount: 50
+        },
+        {
+            _id: 'bcoLELMoA3oHdKLXd',
+            tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
+            fromId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
+            againstId: 'qmxstpBMSrHwf5N7g', // Sally / seller
+            amount: 50
+        },
+        {
+            _id: 'NXog25NXRq74EMMLx',
+            tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            traderId: 'qmxstpBMSrHwf5N7g', // Sally / seller
+            fromId: 'GhpmzJz9aodzkbWaR', // Mike / v3
+            againstId: '74GDdWHJ3JotoRgLy', // Bob / buyer
+            amount: 150
         }
     ],
     // TODO : Just reference Users?
