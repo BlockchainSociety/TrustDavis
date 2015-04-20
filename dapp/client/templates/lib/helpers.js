@@ -1,3 +1,7 @@
+Template.registerHelper("toUpperCase", function(str) {
+    return str.toUpperCase();
+});
+
 Template.registerHelper("formatDate", function(date) {
     return moment(date).format('YYYY-MM-DD');
 });

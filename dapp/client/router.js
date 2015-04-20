@@ -43,9 +43,15 @@ Router.map(function() {
         path: '/trade/:tradeId',
         template: 'tradeDetails',
         data: function() {
-            return {
-                trade: Trades.findOne({_id: this.params.tradeId})
-            };
+            var trade = Trades.findOne({_id: this.params.tradeId});
+
+            if (!trade) {
+                return undefined;
+            } else {
+                return {
+                    trade: trade
+                };
+            }
         },
         waitOn: function() {
             return Meteor.subscribe('trade', this.params.tradeId);
@@ -65,16 +71,16 @@ Router.map(function() {
         }
     });
 
-    this.route('contacts', {
-        path: '/contacts',
-        template: 'contacts',
+    this.route('peers', {
+        path: '/peers',
+        template: 'peers',
         data: function() {
             return {
-                myContacts: Contacts.find()
+                myPeers: Peers.find()
             };
         },
         waitOn: function() {
-            return Meteor.subscribe('my_contacts');
+            return Meteor.subscribe('user_peers', Meteor.connection.userId());
         }
     });
 
@@ -82,25 +88,28 @@ Router.map(function() {
         path: '/user/:userId',
         template: 'userDetails',
         data: function() {
-            return {
-                user: Users.findOne({_id: this.params.userId}),
-                userTrades: Trades.find({
-                    $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ]
-                }),
-                userReferences: References.find({insurerId: this.params.userId})
-            };
+            var user = Users.findOne({_id: this.params.userId});
+
+            if (!user) {
+                return undefined;
+            } else {
+                return {
+                    user: user,
+                    userTrades: Trades.find({
+                        $or : [ { buyerId: this.params.userId }, { sellerId: this.params.userId } ]
+                    }),
+                    userPeers: Peers.find({fromId: this.params.userId})
+                };
+            }
         },
         waitOn: function() {
             return [
                 Meteor.subscribe('user', this.params.userId),
                 Meteor.subscribe('user_trades', this.params.userId),
-                Meteor.subscribe('user_references', this.params.userId)
+                Meteor.subscribe('user_peers', this.params.userId)
             ];
         }
     });
-
-    this.route('notfound', {
-        path: '/notfound',
-        template: 'notfound'
-    });
 });
+
+Router.plugin('dataNotFound', {notFoundTemplate: 'notFound'});

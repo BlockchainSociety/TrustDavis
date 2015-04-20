@@ -13,10 +13,10 @@ Meteor.startup(function () {
         });
     }
 
-    if (!Contacts.find().count()) {
-        _.each(Fixtures.contacts, function(contact) {
-            console.log("inserting contact fixture", contact._id);
-            Contacts.insert(contact);
+    if (!Peers.find().count()) {
+        _.each(Fixtures.peers, function(peer) {
+            console.log("inserting peer fixture", peer._id);
+            Peers.insert(peer);
         });
     }
 

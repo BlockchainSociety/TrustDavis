@@ -1,15 +1,7 @@
-References = new Mongo.Collection("references");
+Peers = new Mongo.Collection("peers");
 
-References.attachSchema(
+Peers.attachSchema(
   new SimpleSchema({
-    tradeId: {
-      type: String,
-      label: "Trade Id"
-    },
-    traderId: {
-      type: String,
-      label: "Trader User Id"
-    },
     fromId: {
       type: String,
       label: "From User Id"
@@ -18,11 +10,16 @@ References.attachSchema(
       type: String,
       label: "Object User Id"
     },
-    amount: {
+    lockedLiability: {
       type: Number,
-      label: "Amount Insured",
+      label: "Locked Liability",
       min: 0,
       defaultValue: 0
+    },
+    maxLiability: {
+      type: Number,
+      label: "Maximum Liability",
+      min: 0
     },
     premiumPct: {
       type: Number,

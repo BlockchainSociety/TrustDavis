@@ -11,15 +11,15 @@ Template.userDetails.helpers({
         return this.user.name + "'s Trades";
     },
 
-    referencesTitle : function () {
-        return this.user.name + "'s References";
+    peersTitle : function () {
+        return this.user.name + "'s Peers";
     },
 
     tradesCount: function () {
         return this.userTrades.count();
     },
 
-    referencesCount: function () {
+    peersCount: function () {
         return 0; // this.user_references.count();
     },
 

@@ -1,11 +1,11 @@
 "use strict";
 
-AutoForm.addHooks(['newReferenceForm'], {
+AutoForm.addHooks(['newPeerForm'], {
     before: {
         method: function(doc) {
-            doc.insurerId = Meteor.connection.userId();
-            References.simpleSchema().clean(doc);
-            console.log("References doc with auto values", doc);
+            doc.fromId = Meteor.connection.userId();
+            Peers.simpleSchema().clean(doc);
+            console.log("Peers doc with auto values", doc);
             this.result(doc);
         }
     },
@@ -20,8 +20,8 @@ AutoForm.addHooks(['newReferenceForm'], {
     }
 });
 
-Template.newReferenceForm.helpers({
-    newReferenceFormSchema: function() {
-        return References.simpleSchema();
+Template.newPeerForm.helpers({
+    newPeerFormSchema: function() {
+        return Peers.simpleSchema();
     }
 });

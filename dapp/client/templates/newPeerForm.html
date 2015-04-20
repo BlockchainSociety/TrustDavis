@@ -1,4 +1,4 @@
-<template name="newReferenceForm">
+<template name="newPeerForm">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
@@ -6,17 +6,17 @@
             </h3>
         </div>
         <div class="panel-body">
-            {{#autoForm schema=newReferenceFormSchema id="newReferenceForm" type="method" meteormethod="newReference"}}
+            {{#autoForm schema=newPeerFormSchema id="newPeerForm" type="method" meteormethod="newPeer"}}
                 <div class="row">
-                    <div class="col-lg-3{{#if afFieldIsInvalid name='traderId'}} has-error{{/if}}">
+                    <div class="col-lg-3{{#if afFieldIsInvalid name='objectId'}} has-error{{/if}}">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                I want to insure
+                                I want to add
                             </span>
-                            {{> afFieldInput name='traderId' placeholder="person"}}
+                            {{> afFieldInput name='objectId' placeholder="person"}}
                         </div>
-                        {{#if afFieldIsInvalid name='traderId'}}
-                        <span class="help-block">{{afFieldMessage name='traderId'}}</span>
+                        {{#if afFieldIsInvalid name='objectId'}}
+                        <span class="help-block">{{afFieldMessage name='objectId'}}</span>
                         {{/if}}
                     </div>
                     <div class="col-lg-4{{#if afFieldIsInvalid name='maxLiability'}} has-error{{/if}}">

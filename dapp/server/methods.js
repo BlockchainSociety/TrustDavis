@@ -13,16 +13,16 @@ Meteor.methods({
         Trades.update({_id: tradeId}, {$set: {status: 'cancelled'}});
         return {_id: tradeId};
     },
-    newReference: function(reference) {
-        check(reference, References.simpleSchema());
+    newPeer: function(peer) {
+        check(peer, Peers.simpleSchema());
         // TODO further validate
-        var newReferenceId = References.insert(reference);
-        return {_id: newReferenceId};
+        var newPeerId = Peers.insert(peer);
+        return {_id: newPeerId};
     },
-    deleteReference: function(referenceId) {
-        check(referenceId, String);
+    deletePeer: function(peerId) {
+        check(peerId, String);
         // TODO validate status and that user is owner
-        References.remove({_id: referenceId});
-        return {_id: referenceId};
+        Peers.remove({_id: peerId});
+        return {_id: peerId};
     }
 });
