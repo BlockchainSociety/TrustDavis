@@ -55,7 +55,7 @@ Network.init = function(container) {
 
     Network.network = new vis.Network(container, data, Network.options);
 
-    Network.network.on('select', function (properties) {
+    Network.network.on('click', function (properties) {
         if (properties.nodes.length === 1) {
             var userId = properties.nodes[0];
             Router.go('userDetails', {userId: userId});
