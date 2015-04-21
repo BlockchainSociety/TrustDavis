@@ -60,7 +60,7 @@ Trades.attachSchema(
 
 Trades.helpers({
     canBeAccepted: function() {
-        return this.status === "new" && this.counterPartyId() == null;
+        return this.status === "new" && this.counterPartyId() == null && !this.userIsTrader();
     },
     canBeCancelled: function() {
         return this.status === "new" || this.status === "accepted" && this.userIsTrader();
