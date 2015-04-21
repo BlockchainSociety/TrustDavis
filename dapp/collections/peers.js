@@ -19,13 +19,15 @@ Peers.attachSchema(
     maxLiability: {
       type: Number,
       label: "Maximum Liability",
-      min: 0
+      min: 0,
+      defaultValue: 0
     },
     premiumPct: {
       type: Number,
       label: "Premium Percentage",
       min: 0,
-      max: 100
+      max: 100,
+      defaultValue: 0
     }
   })
 );

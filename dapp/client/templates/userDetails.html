@@ -22,8 +22,8 @@
                     <td>Name</td>
                     <td>
                         <span>{{user.name}}</span>
-                        {{#if notMyself}}
-                            <button type="button" class="btn btn-default">
+                        {{#if showAddtoPeers}}
+                            <button type="button" class="btn btn-default" id="btn-add-to-peers">
                             Add to Peers
                             </button>
                         {{/if}}

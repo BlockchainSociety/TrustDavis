@@ -13,3 +13,13 @@ Users.attachSchema(
     }
   })
 );
+
+Users.helpers({
+    isMyself: function() {
+        return this._id === Meteor.connection.userId();
+    },
+    isPeer: function() {
+        var peer = Peers.findOne({fromId: Meteor.connection.userId(), objectId: this._id});
+        return _.isObject(peer);
+    }
+});

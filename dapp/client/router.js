@@ -106,7 +106,8 @@ Router.map(function() {
             return [
                 Meteor.subscribe('user', this.params.userId),
                 Meteor.subscribe('user_trades', this.params.userId),
-                Meteor.subscribe('user_peers', this.params.userId)
+                Meteor.subscribe('user_peers', this.params.userId),
+                Meteor.subscribe('user_peers', Meteor.connection.userId())
             ];
         }
     });
