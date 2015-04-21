@@ -42,5 +42,12 @@ Meteor.methods({
         // TODO validate status and that user is owner
         Peers.remove({_id: peerId});
         return {_id: peerId};
-    }
+    },
+    newUser: function(user) {
+        check(user, Users.simpleSchema());
+        // TODO further validate
+        user._id = this.userId;
+        var newUserId = Users.insert(user);
+        return {_id: newUserId};
+    },
 });

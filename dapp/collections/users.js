@@ -4,12 +4,13 @@ Users.attachSchema(
   new SimpleSchema({
     name: {
       type: String,
-      label: "User Alias"
+      label: "User Name"
     },
     deposit: {
       type: Number,
       label: 'Deposit',
-      min: 0
+      min: 0,
+      defaultValue: 0
     }
   })
 );

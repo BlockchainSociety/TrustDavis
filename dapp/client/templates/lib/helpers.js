@@ -18,3 +18,8 @@ Template.registerHelper("userName", function(userId) {
         return "[not found]";
     }
 });
+
+Template.registerHelper("isNewbie", function() {
+    var user = Users.findOne({_id: Meteor.connection.userId()});
+    return _.isUndefined(user);
+});
