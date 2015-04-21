@@ -72,6 +72,13 @@ Trades.helpers({
             return this.sellerId;
         }
     },
+    traderId: function() {
+        if (this.type == "sell") {
+            return this.sellerId;
+        } else {
+            return this.buyerId;
+        }
+    },
     userIsBuyer: function() {
         return this.buyerId === Meteor.connection.userId();
     },

@@ -1,6 +1,8 @@
 <template name="peerRow">
     <tr>
-        <td><a href="{{pathFor route='userDetails' userId=objectId}}" class="">{{userName objectId}} ({{objectId}})</a></td>
+        <td>
+            {{> userLink userId=objectId}}
+        </td>
         <td>
             <span>USD</span>
             <span>{{maxLiability}}</span>

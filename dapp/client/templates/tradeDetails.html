@@ -36,12 +36,7 @@
                             </td>
                             <td>
                                 {{#if trade.sellerId}}
-                                    <a href="{{pathFor route='userDetails' userId=trade.sellerId}}">
-                                        <span>{{userName trade.sellerId}}</span>
-                                        <span>(</span>
-                                        <span>{{trade.sellerId}}</span>
-                                        <span>)</span>
-                                    </a>
+                                    {{> userLink userId=trade.sellerId}}
                                 {{else}}
                                     Not claimed
                                 {{/if}}
@@ -56,12 +51,7 @@
                             </td>
                             <td>
                                 {{#if trade.buyerId}}
-                                    <a href="{{pathFor route='userDetails' userId=trade.buyerId}}">
-                                        <span>{{userName trade.buyerId}}</span>
-                                        <span>(</span>
-                                        <span>{{trade.buyerId}}</span>
-                                        <span>)</span>
-                                    </a>
+                                    {{> userLink userId=trade.buyerId}}
                                 {{else}}
                                     Not claimed
                                 {{/if}}

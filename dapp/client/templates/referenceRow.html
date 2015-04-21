@@ -1,6 +1,8 @@
 <template name="referenceRow">
     <tr>
-        <td><a href="{{pathFor route='userDetails' userId=traderId}}" class="">{{userName traderId}} ({{traderId}})</a></td>
+        <td>
+            {{> userLink userId=traderId}}
+        </td>
         <td>
             <span>USD</span>
             <span>{{maxLiability}}</span>

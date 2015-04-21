@@ -1,0 +1,8 @@
+<template name="userLink">
+    <a href="{{pathFor route='userDetails' userId=userId}}">
+        <span>{{userName userId}}</span>
+        <span>(</span>
+        <span>{{userId}}</span>
+        <span>)</span>
+    </a>
+</template>

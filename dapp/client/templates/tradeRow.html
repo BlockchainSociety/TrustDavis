@@ -4,13 +4,11 @@
         <td><a href="{{pathFor route='tradeDetails' tradeId=_id}}">{{description}}</a></td>
         <td>USD {{price}}</td>
         <td>
+            {{> userLink userId=traderId}}
+        </td>
+        <td>
             {{#if counterPartyId}}
-                <a href="{{pathFor route='userDetails' userId=counterPartyId}}">
-                    <span>{{userName counterPartyId}}</span>
-                    <span>(</span>
-                    <span>{{counterPartyId}}</span>
-                    <span>)</span>
-                </a>
+                {{> userLink userId=counterPartyId}}
             {{else}}
                 Not claimed
             {{/if}}
