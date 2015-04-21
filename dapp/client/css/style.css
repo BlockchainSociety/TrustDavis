@@ -9,3 +9,9 @@
 .spacer {
     margin-top: 40px;
 }
+
+.network {
+    width: 100%;
+    height: 50vw;
+    background-color: #E5D8CA;
+}

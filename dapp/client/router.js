@@ -110,6 +110,20 @@ Router.map(function() {
             ];
         }
     });
+
+    this.route('network', {
+        path: '/network',
+        template: 'network',
+        data: function() {
+            return {
+                users: Users.find(),
+                peers: Peers.find()
+            };
+        },
+        waitOn: function() {
+            return Meteor.subscribe('all_peers');
+        }
+    });
 });
 
 Router.plugin('dataNotFound', {notFoundTemplate: 'notFound'});

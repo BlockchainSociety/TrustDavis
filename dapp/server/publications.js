@@ -5,6 +5,13 @@ Meteor.publish("all_users", function() {
     ];
 });
 
+Meteor.publish("all_peers", function() {
+    check(arguments, [Match.Any]);
+    return [
+        Peers.find()
+    ];
+});
+
 Meteor.publish("user", function(userId) {
     check(arguments, [Match.Any]);
     return [
