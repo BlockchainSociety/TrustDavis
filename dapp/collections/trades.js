@@ -59,8 +59,11 @@ Trades.attachSchema(
 );
 
 Trades.helpers({
+    canBeAccepted: function() {
+        return this.status === "new" && this.counterPartyId() == null;
+    },
     canBeCancelled: function() {
-        return this.status === "new";
+        return this.status === "new" || this.status === "accepted" && this.userIsTrader();
     },
     counterPartyId: function() {
         if (this.type == "sell") {
@@ -74,5 +77,8 @@ Trades.helpers({
     },
     userIsSeller: function() {
         return this.sellerId === Meteor.connection.userId();
+    },
+    userIsTrader: function() {
+        return this.userIsBuyer() || this.userIsSeller();
     }
 });

@@ -7,6 +7,24 @@ Meteor.methods({
         var newTradeId = Trades.insert(trade);
         return {_id: newTradeId};
     },
+    acceptTrade: function(tradeId) {
+        check(tradeId, String);
+        // TODO validate status and that the trade has no counterparty yet
+        var trade = Trades.findOne({_id: tradeId});
+        if (!trade) {
+            throw new Meteor.Error(404, "Trade not found");
+        }
+
+        if (trade.buyerId == null) {
+            Trades.update({_id: tradeId}, {$set: {buyerId: this.userId, status: 'accepted'}});
+        } else if (trade.sellerId == null) {
+            Trades.update({_id: tradeId}, {$set: {sellerId: this.userId, status: 'accepted'}});
+        } else {
+            throw new Meteor.Error(400, "Trade already has a counterparty");
+        }
+
+        return {_id: tradeId};
+    },
     cancelTrade: function(tradeId) {
         check(tradeId, String);
         // TODO validate status and that user is buyer or seller

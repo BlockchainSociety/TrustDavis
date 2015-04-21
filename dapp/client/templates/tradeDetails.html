@@ -135,6 +135,13 @@
                     </div>
                 </div>
                 <div class="row spacer">
+                    {{#if trade.canBeAccepted}}
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-default" id="btn-accept">
+                            Accept Trade
+                            </button>
+                        </div>
+                    {{/if}}
                     {{#if trade.canBeCancelled}}
                         <div class="col-xs-4">
                             <button type="button" class="btn btn-default" id="btn-cancel">
