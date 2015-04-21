@@ -28,7 +28,7 @@ Template.userDetails.helpers({
     },
 
     peersCount: function () {
-        return 0; // this.user_references.count();
+        return this.userPeers.count();
     },
 
     showAddtoPeers: function() {
