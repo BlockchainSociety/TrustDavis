@@ -46,6 +46,22 @@ Meteor.publish("trade_references", function(tradeId) {
     ];
 });
 
+Meteor.publishComposite("trade_potential_references", function(tradeId) {
+    check(arguments, [Match.Any]);
+    return {
+        find: function() {
+            return Trades.find({_id: tradeId});
+        },
+        children: [{
+            find: function(trade) {
+                return Peers.find({
+                    objectId: { $in: [ trade.buyerId, trade.sellerId ] }
+                });
+            }
+        }]
+    };
+});
+
 Meteor.publish("user_trades", function(userId) {
     check(arguments, [Match.Any]);
     return [

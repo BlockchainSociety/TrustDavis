@@ -51,14 +51,17 @@ Router.map(function() {
                 return {
                     trade: trade,
                     sellerReferences: References.find({tradeId: this.params.tradeId, traderId: trade.sellerId}),
-                    buyerReferences: References.find({tradeId: this.params.tradeId, traderId: trade.buyerId})
+                    buyerReferences: References.find({tradeId: this.params.tradeId, traderId: trade.buyerId}),
+                    sellerPotentialReferences: Peers.find({objectId: trade.sellerId}),
+                    buyerPotentialReferences: Peers.find({objectId: trade.buyerId})
                 };
             }
         },
         waitOn: function() {
             return [
                 Meteor.subscribe('trade', this.params.tradeId),
-                Meteor.subscribe('trade_references', this.params.tradeId)
+                Meteor.subscribe('trade_references', this.params.tradeId),
+                Meteor.subscribe('trade_potential_references', this.params.tradeId)
             ];
         }
     });

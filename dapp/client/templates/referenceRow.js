@@ -4,3 +4,13 @@ Template.referenceRow.events({
         Meteor.call("deleteReference", this._id);
     }
 });
+
+Template.referenceRow.helpers({
+    amount: function() {
+        if (this.amount) {
+            return this.amount;
+        } else {
+            return this.maxLiability;
+        }
+    }
+});
