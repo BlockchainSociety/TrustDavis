@@ -50,8 +50,8 @@ Router.map(function() {
             } else {
                 return {
                     trade: trade,
-                    sellerReferences: References.find({tradeId: this.params.tradeId, traderId: trade.sellerId}),
-                    buyerReferences: References.find({tradeId: this.params.tradeId, traderId: trade.buyerId}),
+                    sellerReferences: References.find({tradeId: this.params.tradeId, objectId: trade.sellerId}),
+                    buyerReferences: References.find({tradeId: this.params.tradeId, objectId: trade.buyerId}),
                     sellerPotentialReferences: Peers.find({objectId: trade.sellerId}),
                     buyerPotentialReferences: Peers.find({objectId: trade.buyerId})
                 };
