@@ -8,25 +8,25 @@
                 </div>
 
                 <div class="modal-body">
-                    <p>Your must deposit funds before making references or trading.</p>
-                    {{#autoForm schema=newDepositFormSchema id="depositFundsForm" type="method" meteormethod="newDeposit"}}
-                        {{> afFieldInput name="type" value=type type="hidden"}}
+                    <p>Deposit funds to make references or trades.</p>
+                        {{#autoForm schema=depositFormSchema id="depositFundsForm" type="method" meteormethod="makeDeposit"}}
+                        {{> afFieldInput name="name" value=name type="hidden"}}
                         <div class="row">
-                            <div class="col-lg-2{{#if afFieldIsInvalid name='price'}} has-error{{/if}}">
+                            <div class="col-lg-5{{#if afFieldIsInvalid name='deposit'}} has-error{{/if}}">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                     I want to Deposit
                                     </span>
-                                    {{> afFieldInput name='price' placeholder="0.00" step="0.01"}}
+                                    {{> afFieldInput name='deposit' placeholder="0" step="1"}}
                                 </div>
-                                {{#if afFieldIsInvalid name='price'}}
-                                <span class="help-block">{{afFieldMessage name='price'}}</span>
+                                {{#if afFieldIsInvalid name='deposit'}}
+                                <span class="help-block">{{afFieldMessage name='deposit'}}</span>
                                 {{/if}}
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-2">
                                 <div class="input-group">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">Create</button>
+                                        <button class="btn btn-default" type="submit">Deposit</button>
                                     </span>
                                 </div>
                             </div>

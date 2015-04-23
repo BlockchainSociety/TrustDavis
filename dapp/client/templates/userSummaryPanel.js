@@ -5,7 +5,8 @@ Template.userSummaryPanel.events({
         Modal.show("userIdModal", {userId: this.user._id, name: this.user.name});
     },
     "click #btn-deposit-funds": function (event) {
-        Modal.show("depositFundsModal", {userId: this.user._id, deposit: this.user.deposit});
+        console.log(this.user.name);
+        Modal.show("depositFundsModal", {userId: this.user._id, deposit: this.user.deposit, name: this.user.name});
     },
     "click #btn-add-to-peers": function (event) {
         var peer = {

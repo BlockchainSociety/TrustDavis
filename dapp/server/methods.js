@@ -1,8 +1,17 @@
 "use strict";
 
 Meteor.methods({
-    updateUser: function (user) {
+    makeDeposit: function (user) {
         check(user, Users.simpleSchema());
+
+        var tmpUser = Users.findOne({_id: this.userId });
+        if (!tmpUser) {
+            throw new Meteor.Error(404, "User not found");
+        }
+
+        var newDeposit = tmpUser.deposit + user.deposit;
+
+        Users.update({_id: tmpUser._id }, { $set: { deposit: newDeposit }});
     },
     newTrade: function(trade) {
         check(trade, Trades.simpleSchema());
