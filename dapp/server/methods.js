@@ -9,9 +9,7 @@ Meteor.methods({
             throw new Meteor.Error(404, "User not found");
         }
 
-        var newDeposit = tmpUser.deposit + user.deposit;
-
-        Users.update({_id: tmpUser._id }, { $set: { deposit: newDeposit }});
+        Users.update({_id: tmpUser._id }, { $inc: { deposit: user.deposit }});
     },
     newTrade: function(trade) {
         check(trade, Trades.simpleSchema());
