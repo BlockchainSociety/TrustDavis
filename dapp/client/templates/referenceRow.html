@@ -1,35 +1,18 @@
 <template name="referenceRow">
     <tr>
         <td>
-            {{> userLink userId=traderId}}
+            {{> userLink userId=fromId}}
+        </td>
+        <td>
+            {{> userLink userId=objectId}}
         </td>
         <td>
             <span>USD</span>
-            <span>{{maxLiability}}</span>
+            <span>{{amount}}</span>
         </td>
         <td>
             <span>{{premiumPct}}</span>
             <span>%</span>
-        </td>
-        <td>
-            <span>USD</span>
-            <span>{{lockedLiability}}</span>
-        </td>
-        <td>
-            <div class="dropdown">
-                <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu-" data-toggle="dropdown">
-                <span>Action </span>
-                <span class="caret">
-                </span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu-">
-                    <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#" class="delete">
-                        Delete
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </td>
     </tr>
 </template>

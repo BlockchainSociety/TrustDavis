@@ -39,6 +39,13 @@ Meteor.publish("open_trades", function() {
     ];
 });
 
+Meteor.publish("trade_references", function(tradeId) {
+    check(arguments, [Match.Any]);
+    return [
+        References.find({tradeId: tradeId})
+    ];
+});
+
 Meteor.publish("user_trades", function(userId) {
     check(arguments, [Match.Any]);
     return [

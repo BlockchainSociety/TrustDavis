@@ -8,28 +8,8 @@
         {{> tradeStatusPanel trade=trade}}
     </div>
 </div>
-<!-- TODO trade references -->
-<div class="row">
-    <div class="col-xs-6">
-        <h3 class="visible-xs-block">
-        References
-        </h3>
-        <h3 class="hidden-xs">
-        References for this trade
-        </h3>
-    </div>
-    <div class="col-xs-6 text-right">
-    </div>
-</div>
-<table class="tradeReferenceList table table-striped">
-    <thead>
-        <tr>
-            <th>Insurer</th>
-            <th>Liability</th>
-            <th>Premium</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+
+{{> referenceTable title="References for the Seller" references=sellerReferences}}
+
+{{> referenceTable title="References for the Buyer" references=buyerReferences}}
 </template>

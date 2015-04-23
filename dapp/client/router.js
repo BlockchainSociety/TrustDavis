@@ -49,12 +49,17 @@ Router.map(function() {
                 return undefined;
             } else {
                 return {
-                    trade: trade
+                    trade: trade,
+                    sellerReferences: References.find({tradeId: this.params.tradeId, traderId: trade.sellerId}),
+                    buyerReferences: References.find({tradeId: this.params.tradeId, traderId: trade.buyerId})
                 };
             }
         },
         waitOn: function() {
-            return Meteor.subscribe('trade', this.params.tradeId);
+            return [
+                Meteor.subscribe('trade', this.params.tradeId),
+                Meteor.subscribe('trade_references', this.params.tradeId)
+            ];
         }
     });
 
