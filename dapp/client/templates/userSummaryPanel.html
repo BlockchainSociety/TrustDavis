@@ -37,6 +37,17 @@
                         <td>Peers</td>
                         <td>{{peersCount}}</td>
                     </tr>
+                    {{#if showDepositForm}}
+                    <tr>
+                        <td>Deposit</td>
+                        <td>
+                            <span>{{user.deposit}}</span>
+                            <button type="button" class="btn btn-default" id="btn-deposit-funds">
+                                Deposit Funds
+                            </button>
+                            </td>
+                    </tr>
+                    {{/if}}
                 </tbody>
             </table>
         </div>

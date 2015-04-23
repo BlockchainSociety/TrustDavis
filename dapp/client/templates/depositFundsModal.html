@@ -1,0 +1,42 @@
+<template name="depositFundsModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Deposit Funds for {{name}}</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>Your must deposit funds before making references or trading.</p>
+                    {{#autoForm schema=newDepositFormSchema id="depositFundsForm" type="method" meteormethod="newDeposit"}}
+                        {{> afFieldInput name="type" value=type type="hidden"}}
+                        <div class="row">
+                            <div class="col-lg-2{{#if afFieldIsInvalid name='price'}} has-error{{/if}}">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    I want to Deposit
+                                    </span>
+                                    {{> afFieldInput name='price' placeholder="0.00" step="0.01"}}
+                                </div>
+                                {{#if afFieldIsInvalid name='price'}}
+                                <span class="help-block">{{afFieldMessage name='price'}}</span>
+                                {{/if}}
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">Create</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/autoForm}}
+                </div>
+                <div class="modal-footer">
+                    <button id="close" class="btn btn-default">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

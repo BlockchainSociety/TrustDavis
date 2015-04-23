@@ -19,6 +19,16 @@ Template.registerHelper("userName", function(userId) {
     }
 });
 
+// Should make this a subscription so updates in realtime?
+Template.registerHelper("userDeposit", function(userId) {
+    var user = Users.findOne({_id: userId});
+    if (user) {
+        return user.deposit || "[no deposit]";
+    } else {
+        return "[not found]";
+    }
+});
+
 Template.registerHelper("isNewbie", function() {
     var user = Users.findOne({_id: Meteor.connection.userId()});
     return _.isUndefined(user);

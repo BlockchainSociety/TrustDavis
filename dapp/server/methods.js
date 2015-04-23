@@ -1,6 +1,9 @@
 "use strict";
 
 Meteor.methods({
+    updateUser: function (user) {
+        check(user, Users.simpleSchema());
+    },
     newTrade: function(trade) {
         check(trade, Trades.simpleSchema());
         // TODO further validate

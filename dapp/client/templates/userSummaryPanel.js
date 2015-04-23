@@ -4,6 +4,9 @@ Template.userSummaryPanel.events({
     "click #btn-show-user-id": function (event) {
         Modal.show("userIdModal", {userId: this.user._id, name: this.user.name});
     },
+    "click #btn-deposit-funds": function (event) {
+        Modal.show("depositFundsModal", {userId: this.user._id, deposit: this.user.deposit});
+    },
     "click #btn-add-to-peers": function (event) {
         var peer = {
             fromId: Meteor.connection.userId(),
@@ -17,5 +20,9 @@ Template.userSummaryPanel.events({
 Template.userSummaryPanel.helpers({
     showAddtoPeers: function() {
         return !this.user.isMyself() && !this.user.isPeer();
+    },
+
+    showDepositForm: function() {
+        return this.user.isMyself();
     }
 });
