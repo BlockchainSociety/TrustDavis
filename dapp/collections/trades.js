@@ -40,20 +40,6 @@ Trades.attachSchema(
     },
     expiration: {
       type: Date
-    },
-    escrowPct: {
-      type: Number,
-      label: "Escrow Percentage",
-      min: 0,
-      max: 100,
-      defaultValue: 0
-    },
-    insurancePct: {
-      type: Number,
-      label: "Insurance Percentage",
-      min: 0,
-      max: 100,
-      defaultValue: 0
     }
   })
 );
@@ -87,5 +73,31 @@ Trades.helpers({
     },
     userIsTrader: function() {
         return this.userIsBuyer() || this.userIsSeller();
+    },
+    buyerInsurance: function() {
+        var total = 0;
+
+        var buyerReferences = References.find({tradeId: this._id, traderId: this.buyerId, objectId: this.sellerId});
+        buyerReferences.forEach(function(reference) {
+            total += reference.amount;
+        });
+
+        return total;
+    },
+    sellerInsurance: function() {
+        var total = 0;
+
+        var sellerReferences = References.find({tradeId: this._id, traderId: this.sellerId, objectId: this.buyerId});
+        sellerReferences.forEach(function(reference) {
+            total += reference.amount;
+        });
+
+        return total;
+    },
+    buyerInsurancePct: function() {
+        return this.buyerInsurance() / this.price * 100;
+    },
+    sellerInsurancePct: function() {
+        return this.sellerInsurance() / this.price * 100;
     }
 });

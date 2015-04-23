@@ -35,9 +35,7 @@ Fixtures = {
             buyerId: '74GDdWHJ3JotoRgLy', // Bob
             sellerId: 'qmxstpBMSrHwf5N7g', // Sally
             status: 'insured',
-            expiration: '2015-06-15',
-            buyerInsurancePct: 100.0,
-            sellerInsurancePct: 100.0
+            expiration: '2015-06-15'
         },
         {
             _id: 'SLsL9iQs6cgujmQEz',
@@ -46,9 +44,7 @@ Fixtures = {
             price: 66,
             buyerId: '74GDdWHJ3JotoRgLy', // Bob
             status: 'new',
-            expiration: '2014-10-15',
-            escrowPct: 100.0,
-            insurancePct: 50.0
+            expiration: '2014-10-15'
         },
         {
             _id: 'GFaGCaaNKPCbaF2vw',
@@ -57,9 +53,7 @@ Fixtures = {
             price: 42,
             sellerId: 'qmxstpBMSrHwf5N7g', // Sally
             status: 'cancelled',
-            expiration: '2014-10-15',
-            escrowPct: 100.0,
-            insurancePct: 50.0
+            expiration: '2014-10-15'
         }
     ],
     references: [
