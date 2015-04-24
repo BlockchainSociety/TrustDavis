@@ -14,6 +14,15 @@
             {{/if}}
         </td>
         <td>{{toUpperCase status}}</td>
-        <td>{{formatDate expiration}}</td>
+        <td>
+            {{#if hasExpired}}
+                Expired {{formatDateFromNow expiration}}
+                <button type="button" class="btn btn-default btn-xs" id="btn-cancel-trade">
+                    <i class="fa fa-close fa-lg"></i>
+                </button>
+            {{else}}
+                {{formatDate expiration}}
+            {{/if}}
+        </td>
     </tr>
 </template>

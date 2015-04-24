@@ -37,8 +37,23 @@ Meteor.methods({
     },
     cancelTrade: function(tradeId) {
         check(tradeId, String);
-        // TODO validate status and that user is buyer or seller
-        Trades.update({_id: tradeId}, {$set: {status: 'cancelled'}});
+
+        var trade, expired;
+
+        trade = Trades.findOne({_id: tradeId});
+        if (!trade) {
+            throw new Meteor.Error(404, "Trade not found");
+        }
+
+        if(this.userId == trade.buyerId || this.userId == trade.sellerId) {
+            expired = moment().isAfter(moment(trade.expiration));
+
+            if( expired ) {
+                Trades.update({_id: tradeId}, {$set: {status: 'expired'}});
+            } else if ( !trade.buyerId || !trade.sellerId ) {
+                Trades.update({_id: tradeId}, {$set: {status: 'cancelled'}});
+            }
+        }
         return {_id: tradeId};
     },
     newPeer: function(peer) {

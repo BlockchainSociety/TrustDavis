@@ -51,6 +51,9 @@ Trades.helpers({
     canBeCancelled: function() {
         return this.status === "new" || this.status === "accepted" && this.userIsTrader();
     },
+    hasExpired: function() {
+      return moment().isAfter(moment(this.expiration));
+    },
     counterPartyId: function() {
         if (this.type == "sell") {
             return this.buyerId;
