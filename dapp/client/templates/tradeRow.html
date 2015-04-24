@@ -17,9 +17,11 @@
         <td>
             {{#if hasExpired}}
                 Expired {{formatDateFromNow expiration}}
-                <button type="button" class="btn btn-default btn-xs" id="btn-cancel-trade">
-                    <i class="fa fa-close fa-lg"></i>
-                </button>
+                {{#if userIsTrader}}
+                    <button type="button" class="btn btn-default btn-xs" id="btn-cancel-trade">
+                        <i class="fa fa-close fa-lg"></i>
+                    </button>
+                 {{/if}}
             {{else}}
                 {{formatDate expiration}}
             {{/if}}
