@@ -1,0 +1,25 @@
+type address: [addr]
+
+
+
+
+
+data graph[](in[], out[])
+
+macro NODE_ADDR(): -1
+
+macro set_node_key( $addr0, $key, $data ):
+    self.graph[$addr0][NODE_ADDR()][$key] = $data
+
+macro set_edge_key( $addr0, $addr1, $key, $data):
+    self.graph[$addr0].in[$addr1] = liability
+    self.graph[$addr1].out[$addr0] = liability
+
+    if $addr0 != $addr1:
+        self.graph[$addr0][$addr1][$key] = $data
+
+macro get_node_key( $addr0, $key ):
+    self.graph[$addr0][NODE_ADDR()][$key]
+
+macro get_edge_key($addr0, $addr1, $key):
+    self.graph[$addr0][$addr0][$key]
