@@ -1,4 +1,4 @@
-AutoForm.addHooks(['updatePeerForm'], {
+AutoForm.addHooks(['modifyPeerMaxLiabilityAndPremiumForm'], {
     before: {
         method: function(peer) {
             console.log('before', peer);
@@ -16,20 +16,20 @@ AutoForm.addHooks(['updatePeerForm'], {
             } else {
                 console.log("Update Result:", result);
             }
-            Modal.hide("updatePeerModal");
+            Modal.hide("modifyPeerMaxLiabilityAndPremiumModal");
         }
     }
 });
 
-Template.updatePeerModal.events({
+Template.modifyPeerMaxLiabilityAndPremiumModal.events({
     'click #close': function(event, template) {
         event.preventDefault();
-        Modal.hide("updatePeerModal");
+        Modal.hide("modifyPeerMaxLiabilityAndPremiumModal");
     }
 })
 
-Template.updatePeerModal.helpers({
-    updatePeerFormSchema: function() {
+Template.modifyPeerMaxLiabilityAndPremiumModal.helpers({
+    modifyPeerMaxLiabilityAndPremiumFormSchema: function() {
         return Peers.simpleSchema();
     }
 });

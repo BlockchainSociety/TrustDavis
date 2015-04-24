@@ -1,8 +1,8 @@
 "use strict";
 
 Meteor.methods({
-    updatePeer: function (update) {
-        console.log('updatePeer', update, this);
+    modifyPeerMaxLiabilityAndPremium: function (update) {
+        console.log('modifyPeerMaxLiabilityAndPremium', update, this);
         // TODO check against Mongo query?
         // check(peer, Peers.simpleSchema());
 
