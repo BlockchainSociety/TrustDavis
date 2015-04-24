@@ -1,0 +1,50 @@
+<template name="updatePeerModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{#autoForm collection="Peers" doc=peer id="updatePeerForm"  type="method-update" meteormethod="updatePeer"}}
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Update Peer</h4>
+                </div>
+
+                <div class="modal-body">
+                    {{peerId}}
+                        <div class="row">
+
+                            <div class="col-lg-5{{#if afFieldIsInvalid name='premiumPct'}} has-error{{/if}}">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    Premium
+                                    </span>
+                                    {{> afFieldInput name='premiumPct' placeholder="0" step="1"}}
+                                </div>
+                                {{#if afFieldIsInvalid name='premiumPct'}}
+                                <span class="help-block">{{afFieldMessage name='premiumPct'}}</span>
+                                {{/if}}
+                            </div>
+
+                            <div class="col-lg-5{{#if afFieldIsInvalid name='maxLiability'}} has-error{{/if}}">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                    Max Liability
+                                    </span>
+                                    {{> afFieldInput name='maxLiability' placeholder="0" step="1"}}
+                                </div>
+                                {{#if afFieldIsInvalid name='maxLiability'}}
+                                <span class="help-block">{{afFieldMessage name='maxLiability'}}</span>
+                                {{/if}}
+                            </div>
+                            
+                        </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="submit"> Update </button>
+                    <button id="close" class="btn btn-default">Close</button>
+                </div>
+                {{/autoForm}}
+            </div>
+        </div>
+    </div>
+</template>

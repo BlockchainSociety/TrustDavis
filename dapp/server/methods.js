@@ -1,6 +1,14 @@
 "use strict";
 
 Meteor.methods({
+    updatePeer: function (update) {
+        console.log('updatePeer', update, this);
+        // TODO check against Mongo query?
+        // check(peer, Peers.simpleSchema());
+
+        Peers.update({_id: this._id}, update);
+
+    },
     makeDeposit: function (user) {
         check(user, Users.simpleSchema());
 
