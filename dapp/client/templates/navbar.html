@@ -35,7 +35,12 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="{{pathFor route='userDetails' userId=userId}}">
-                            <span class="fa fa-user"></span> {{userName userId}} ({{userId}}) {{userDeposit userId}}
+                            <span class="fa fa-user"></span> {{userName userId}} ({{userId}})
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{pathFor route='userDetails' userId=userId}}">
+                            USD {{userDeposit userId}}
                         </a>
                     </li>
                 </ul>
