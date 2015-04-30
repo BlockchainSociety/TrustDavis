@@ -10,6 +10,8 @@ blaze-tools@1.0.3
 boilerplate-generator@1.0.3
 callback-hook@1.0.3
 check@1.0.5
+ctjp:meteor-bootstrap-switch@3.3.1_3
+ctjp:meteor-bootstrap-switch-assets@3.3.1_1
 dburles:collection-helpers@1.0.3
 ddp@1.1.0
 deps@1.0.7

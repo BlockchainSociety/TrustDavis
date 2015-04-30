@@ -52,8 +52,8 @@ Router.map(function() {
                     trade: trade,
                     sellerReferences: References.find({tradeId: this.params.tradeId, objectId: trade.sellerId}),
                     buyerReferences: References.find({tradeId: this.params.tradeId, objectId: trade.buyerId}),
-                    sellerPotentialReferences: Peers.find({objectId: trade.sellerId}),
-                    buyerPotentialReferences: Peers.find({objectId: trade.buyerId})
+                    sellerPeers: Peers.find({objectId: trade.sellerId}),
+                    buyerPeers: Peers.find({objectId: trade.buyerId})
                 };
             }
         },
@@ -61,7 +61,7 @@ Router.map(function() {
             return [
                 Meteor.subscribe('trade', this.params.tradeId),
                 Meteor.subscribe('trade_references', this.params.tradeId),
-                Meteor.subscribe('trade_potential_references', this.params.tradeId)
+                Meteor.subscribe('trade_peers', this.params.tradeId)
             ];
         }
     });

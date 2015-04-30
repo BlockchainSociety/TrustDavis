@@ -6,6 +6,10 @@ References.attachSchema(
       type: String,
       label: "Trade Id"
     },
+    peerId: {
+      type: String,
+      label: "Peer Id"
+    },
     traderId: {
       type: String,
       label: "Trader User Id"

@@ -1,6 +1,9 @@
 <template name="referenceRow">
     <tr>
         <td>
+            <input class="switch" type="checkbox" name="my-checkbox" checked={{isChecked isActive true}} data-size="mini">
+        </td>
+        <td>
             {{> userLink userId=fromId}}
         </td>
         <td>

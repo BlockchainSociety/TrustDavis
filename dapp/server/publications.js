@@ -46,7 +46,7 @@ Meteor.publish("trade_references", function(tradeId) {
     ];
 });
 
-Meteor.publishComposite("trade_potential_references", function(tradeId) {
+Meteor.publishComposite("trade_peers", function(tradeId) {
     check(arguments, [Match.Any]);
     return {
         find: function() {

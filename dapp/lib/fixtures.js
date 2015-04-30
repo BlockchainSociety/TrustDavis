@@ -60,6 +60,7 @@ Fixtures = {
         {
             _id: 'iPDyEpW3iro254vpj',
             tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            peerId: 'itcGwbhTW7QFs78nk',
             traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             objectId: 'qmxstpBMSrHwf5N7g', // Sally / seller
@@ -69,6 +70,7 @@ Fixtures = {
         {
             _id: 'M5zW87MjWCtBiGRvL',
             tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            peerId: 'y72HWQgztkha8Mx4S',
             traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             fromId: 'PZWmf9YMJp3XsMjd5', // Kent / v1
             objectId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
@@ -78,6 +80,7 @@ Fixtures = {
         {
             _id: 'bcoLELMoA3oHdKLXd',
             tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            peerId: 'vsmETMKbD8fyCHMPX',
             traderId: '74GDdWHJ3JotoRgLy', // Bob / buyer
             fromId: 'DLKZZeSJEBFQKLNGT', // Lex / v2
             objectId: 'qmxstpBMSrHwf5N7g', // Sally / seller
@@ -87,6 +90,7 @@ Fixtures = {
         {
             _id: 'NXog25NXRq74EMMLx',
             tradeId: 'kGErvKsgiLSNDffh6', // Gnome Trade
+            peerId: 'NzKi9Trb4FWyw7kaM',
             traderId: 'qmxstpBMSrHwf5N7g', // Sally / seller
             fromId: 'GhpmzJz9aodzkbWaR', // Mike / v3
             objectId: '74GDdWHJ3JotoRgLy', // Bob / buyer

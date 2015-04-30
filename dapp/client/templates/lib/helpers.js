@@ -33,3 +33,7 @@ Template.registerHelper("isNewbie", function() {
     var user = Users.findOne({_id: Meteor.connection.userId()});
     return _.isUndefined(user);
 });
+
+Template.registerHelper('isChecked', function (a, b) {
+    return (a === b) ? 'checked' : false;
+});
