@@ -9,9 +9,9 @@
     </div>
 </div>
 
-{{> referenceTable title="Reference for the Seller" references=sellerPeers}}
+{{> referenceTable title="Reference for the Seller" references=sellerPeers enableSwitches=trade.userIsBuyer}}
 
-{{> referenceTable title="Reference for the Buyer" references=buyerPeers}}
+{{> referenceTable title="Reference for the Buyer" references=buyerPeers enableSwitches=trade.userIsSeller}}
 
 
 </template>
