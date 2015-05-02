@@ -2,14 +2,13 @@
     <div class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                {{#autoForm collection="Peers" doc=peer id="modifyPeerMaxLiabilityAndPremiumForm"  type="method-update" meteormethod="modifyPeerMaxLiabilityAndPremium"}}
+                {{#autoForm collection="Peers" doc=peer id="modifyPeerMaxLiabilityAndPremiumForm" type="update"}}
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Update Peer</h4>
+                    <h4 class="modal-title">Update {{userName objectId}}</h4>
                 </div>
 
                 <div class="modal-body">
-                    {{peerId}}
                         <div class="row">
 
                             <div class="col-lg-5{{#if afFieldIsInvalid name='premiumPct'}} has-error{{/if}}">

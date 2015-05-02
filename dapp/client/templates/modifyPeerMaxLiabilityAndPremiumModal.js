@@ -1,11 +1,7 @@
 AutoForm.addHooks(['modifyPeerMaxLiabilityAndPremiumForm'], {
     before: {
         method: function(peer) {
-            console.log('before', peer);
             Peers.simpleSchema().clean(peer);
-
-            console.log('cleaned', peer);
-
             this.result(peer);
         }
     },

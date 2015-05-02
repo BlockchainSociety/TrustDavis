@@ -4,17 +4,20 @@ Peers.attachSchema(
   new SimpleSchema({
     fromId: {
       type: String,
-      label: "From User Id"
+      label: "From User Id",
+      denyUpdate: true
     },
     objectId: {
       type: String,
-      label: "Object User Id"
+      label: "Object User Id",
+      denyUpdate: true
     },
     lockedLiability: {
       type: Number,
       label: "Locked Liability",
       min: 0,
-      defaultValue: 0
+      defaultValue: 0,
+      denyUpdate: true
     },
     maxLiability: {
       type: Number,
@@ -31,3 +34,9 @@ Peers.attachSchema(
     }
   })
 );
+
+Peers.allow({
+  'update': function () {
+    return true;
+  }
+});
