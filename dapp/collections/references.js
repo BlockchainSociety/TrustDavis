@@ -10,14 +10,14 @@ References.attachSchema(
       type: String,
       label: "Peer Id"
     },
-    traderId: {
-      type: String,
-      label: "Trader User Id"
-    },
-    fromId: {
-      type: String,
-      label: "From User Id"
-    },
+    // traderId: {
+    //   type: String,
+    //   label: "Trader User Id"
+    // },
+    // fromId: {
+    //   type: String,
+    //   label: "From User Id"
+    // },
     objectId: {
       type: String,
       label: "Object User Id"

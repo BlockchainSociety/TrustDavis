@@ -75,4 +75,44 @@ Meteor.methods({
         var newUserId = Users.insert(user);
         return {_id: newUserId};
     },
+    newReferenceFromPeer: function(peer, trade) {
+        console.log('new reference', peer, trade);
+
+        // has an issue for some reason?
+        // check(peer, Peers.simpleSchema());
+        // check(trade, Trades.simpleSchema());
+
+        var reference = References.simpleSchema().clean({
+            tradeId : trade._id,
+            peerId: peer._id,
+            // traderId:  , // ??
+            // fromId: ??, // ??
+            objectId: peer.objectId,
+            amount: peer.maxLiability,
+            premiumPct: peer.premiumPct
+        });
+
+        References.insert(reference);
+       
+    },
+    deleteReference: function(peer, trade) {
+        console.log('delete reference', peer, trade);
+
+        // has an issue for some reason?
+        // check(peer, Peers.simpleSchema());
+        // check(trade, Trades.simpleSchema());
+
+        var reference = References.findOne({
+            tradeId: trade._id,
+            peerId: peer._id,
+            objectId: peer.objectId
+        });
+
+        if (!reference) {
+            throw new Meteor.Error(404, "Reference not found");
+        }
+
+        References.remove(reference);
+
+    }
 });

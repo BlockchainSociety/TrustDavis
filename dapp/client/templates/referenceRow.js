@@ -6,6 +6,16 @@ Template.referenceRow.events({
     "switchChange.bootstrapSwitch .switch": function (event) {
         console.log("toggle reference", this._id, event);
 
+        if ('trade' in Template.parentData(2) ) {
+            var trade = Template.parentData(2).trade;
+
+            if($(event.target).is(":checked")) {
+                Meteor.call("newReferenceFromPeer", this, trade );
+            } else {
+                Meteor.call("deleteReference", this, trade );
+            }
+        }
+
     }
 });
 
