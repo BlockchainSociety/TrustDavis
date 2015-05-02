@@ -20,10 +20,10 @@ Template.registerHelper("userName", function(userId) {
 });
 
 // Should make this a subscription so updates in realtime?
-Template.registerHelper("userDeposit", function(userId) {
+Template.registerHelper("userBalance", function(userId) {
     var user = Users.findOne({_id: userId});
     if (user) {
-        return user.deposit || "[no deposit]";
+        return user.balance || "[no balance]";
     } else {
         return "[not found]";
     }

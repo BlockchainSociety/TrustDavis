@@ -1,6 +1,6 @@
 "use strict";
 
-AutoForm.addHooks(['depositFundsForm'], {
+AutoForm.addHooks(['userBalanceModal'], {
     before: {
         method: function(user) {
             Users.simpleSchema().clean(user);
@@ -14,21 +14,21 @@ AutoForm.addHooks(['depositFundsForm'], {
             } else {
                 console.log("Update Result:", result);
             }
-            Modal.hide("depositFundsModal");
+            Modal.hide("userBalanceModal");
         }
     }
 });
 
-Template.depositFundsModal.helpers({
-    depositFormSchema: function() {
+Template.userBalanceModal.helpers({
+    balanceFormSchema: function() {
         return Users.simpleSchema();
     }
 });
 
 
-Template.depositFundsModal.events({
+Template.userBalanceModal.events({
     'click #close': function(event, template) {
         event.preventDefault();
-        Modal.hide("depositFundsModal");
+        Modal.hide("userBalanceModal");
     }
 })

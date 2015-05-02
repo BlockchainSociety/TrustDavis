@@ -37,13 +37,13 @@
                         <td>Peers</td>
                         <td>{{peersCount}}</td>
                     </tr>
-                    {{#if showDepositForm}}
+                    {{#if showBalanceForm}}
                     <tr>
-                        <td>Deposit</td>
+                        <td>Balance</td>
                         <td>
-                            <span>USD {{user.deposit}}</span>
-                            <button type="button" class="btn btn-default" id="btn-deposit-funds">
-                                Deposit Funds
+                            <span>USD {{user.balance}}</span>
+                            <button type="button" class="btn btn-default" id="btn-modify-balance">
+                                Balance/Withdraw Funds
                             </button>
                         </td>
                     </tr>

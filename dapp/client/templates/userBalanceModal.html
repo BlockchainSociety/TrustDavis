@@ -1,32 +1,32 @@
-<template name="depositFundsModal">
+<template name="userBalanceModal">
     <div class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Deposit Funds for {{name}}</h4>
+                    <h4 class="modal-title">Modify Balance for {{name}}</h4>
                 </div>
 
                 <div class="modal-body">
-                    <p>Deposit funds to make references or trades.</p>
-                        {{#autoForm schema=depositFormSchema id="depositFundsForm" type="method" meteormethod="makeDeposit"}}
+                    <p>Balance funds to make references or trades.</p>
+                        {{#autoForm schema=balanceFormSchema id="userBalanceForm" type="method" meteormethod="updateBalance"}}
                         {{> afFieldInput name="name" value=name type="hidden"}}
                         <div class="row">
-                            <div class="col-lg-5{{#if afFieldIsInvalid name='deposit'}} has-error{{/if}}">
+                            <div class="col-lg-5{{#if afFieldIsInvalid name='balance'}} has-error{{/if}}">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                    I want to Deposit
+                                    I want to Balance
                                     </span>
-                                    {{> afFieldInput name='deposit' placeholder="0" step="1"}}
+                                    {{> afFieldInput name='balance' placeholder="0" step="1"}}
                                 </div>
-                                {{#if afFieldIsInvalid name='deposit'}}
-                                <span class="help-block">{{afFieldMessage name='deposit'}}</span>
+                                {{#if afFieldIsInvalid name='balance'}}
+                                <span class="help-block">{{afFieldMessage name='balance'}}</span>
                                 {{/if}}
                             </div>
                             <div class="col-lg-2">
                                 <div class="input-group">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">Deposit</button>
+                                        <button class="btn btn-default" type="submit">Balance</button>
                                     </span>
                                 </div>
                             </div>

@@ -3,27 +3,27 @@ Fixtures = {
         {
             _id : '74GDdWHJ3JotoRgLy',
             name: 'Bob', // Buyer
-            deposit: 0
+            balance: 0
         },
         {
             _id: 'qmxstpBMSrHwf5N7g',
             name: 'Sally', // Seller
-            deposit: 0
+            balance: 0
         },
         {
             _id: 'PZWmf9YMJp3XsMjd5',
             name: 'Kent', // v1
-            deposit: 150
+            balance: 150
         },
         {
             _id: 'DLKZZeSJEBFQKLNGT',
             name: 'Lex', // v2
-            deposit: 50
+            balance: 50
         },
         {
             _id: 'GhpmzJz9aodzkbWaR',
             name: 'Mike', // v3
-            deposit: 150
+            balance: 150
         }
     ],
     trades: [

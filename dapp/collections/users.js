@@ -6,9 +6,9 @@ Users.attachSchema(
       type: String,
       label: "User Name"
     },
-    deposit: {
+    balance: {
       type: Number,
-      label: 'Deposit',
+      label: 'Balance',
       min: 0,
       defaultValue: 0
     }
