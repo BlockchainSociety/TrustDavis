@@ -10,9 +10,9 @@ Template.referenceRow.events({
             var trade = Template.parentData(2).trade;
 
             if($(event.target).is(":checked")) {
-                Meteor.call("newReferenceFromPeer", this, trade );
+                Meteor.call("newReferenceFromPeer", this._id, trade._id);
             } else {
-                Meteor.call("deleteReference", this, trade );
+                Meteor.call("deleteReference", this._id, trade._id);
             }
         }
 
@@ -29,7 +29,6 @@ Template.referenceRow.helpers({
     },
     isActive: function() {
         var reference = References.findOne({peerId: this._id});
-        console.log(this._id, reference);
         return _.isObject(reference);
     }
 });

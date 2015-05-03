@@ -77,12 +77,21 @@ Meteor.methods({
         var newUserId = Users.insert(user);
         return {_id: newUserId};
     },
-    newReferenceFromPeer: function(peer, trade) {
-        console.log('new reference', peer, trade);
+    newReferenceFromPeer: function(peerId, tradeId) {
+        console.log('new reference', peerId, tradeId);
 
-        // has an issue for some reason?
-        // check(peer, Peers.simpleSchema());
-        // check(trade, Trades.simpleSchema());
+        check(peerId, String);
+        check(tradeId, String);
+
+        var peer = Peers.findOne({_id: peerId});
+        if (!peer) {
+            throw new Meteor.Error(404, "Peer not found");
+        }
+
+        var trade = Trades.findOne({_id: tradeId});
+        if (!trade) {
+            throw new Meteor.Error(404, "Trade not found");
+        }
 
         var reference = References.simpleSchema().clean({
             tradeId : trade._id,
@@ -95,14 +104,22 @@ Meteor.methods({
         });
 
         References.insert(reference);
-       
     },
-    deleteReference: function(peer, trade) {
-        console.log('delete reference', peer, trade);
+    deleteReference: function(peerId, tradeId) {
+        console.log('delete reference', peerId, tradeId);
 
-        // has an issue for some reason?
-        // check(peer, Peers.simpleSchema());
-        // check(trade, Trades.simpleSchema());
+        check(peerId, String);
+        check(tradeId, String);
+
+        var peer = Peers.findOne({_id: peerId});
+        if (!peer) {
+            throw new Meteor.Error(404, "Peer not found");
+        }
+
+        var trade = Trades.findOne({_id: tradeId});
+        if (!trade) {
+            throw new Meteor.Error(404, "Trade not found");
+        }
 
         var reference = References.findOne({
             tradeId: trade._id,
@@ -115,6 +132,5 @@ Meteor.methods({
         }
 
         References.remove(reference);
-
     }
 });
