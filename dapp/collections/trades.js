@@ -80,7 +80,7 @@ Trades.helpers({
     buyerInsurance: function() {
         var total = 0;
 
-        var buyerReferences = References.find({tradeId: this._id, objectId: this.sellerId});
+        var buyerReferences = References.find({tradeId: this._id, objectId: this.buyerId});
         buyerReferences.forEach(function(reference) {
             total += reference.amount;
         });
@@ -90,7 +90,7 @@ Trades.helpers({
     sellerInsurance: function() {
         var total = 0;
 
-        var sellerReferences = References.find({tradeId: this._id, objectId: this.buyerId});
+        var sellerReferences = References.find({tradeId: this._id, objectId: this.sellerId});
         sellerReferences.forEach(function(reference) {
             total += reference.amount;
         });
