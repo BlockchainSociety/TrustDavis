@@ -10,6 +10,10 @@ Template.registerHelper("formatDateFromNow", function(date) {
     return moment(date).fromNow();
 });
 
+Template.registerHelper("formatPercentage", function(pct) {
+    return pct.toFixed(1);
+});
+
 Template.registerHelper("userName", function(userId) {
     var user = Users.findOne({_id: userId});
     if (user) {
