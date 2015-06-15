@@ -1,0 +1,8 @@
+<template name="trades">
+    <!-- <h2>Trades</h2> -->
+    {{> newTradeForm}}
+
+    {{> tradeTable title="Your Active Trades" trades=activeTrades}}
+    {{> tradeTable title="Your Closed Trades" trades=closedTrades}}
+    {{> tradeTable title="Open Trades" trades=openTrades}}
+</template>

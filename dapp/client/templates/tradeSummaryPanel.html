@@ -1,0 +1,81 @@
+<template name="tradeSummaryPanel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+            Trade Summary
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed table-striped">
+                <tbody>
+                    <tr>
+                        <td>Trade ID</td>
+                        <td>
+                            <span>{{trade._id}}</span>
+                            <button type="button" class="btn btn-default btn-xs" id="btn-show-trade-id">
+                            <i class="fa fa-files-o fa-lg">
+                            </i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>
+                            <span>{{trade.type}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Seller</span>
+                            {{#if trade.userIsSeller}}
+                                <span>(you)</span>
+                            {{/if}}
+                        </td>
+                        <td>
+                            {{#if trade.sellerId}}
+                                {{> userLink userId=trade.sellerId}}
+                            {{else}}
+                                Not claimed
+                            {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Buyer</span>
+                            {{#if trade.userIsBuyer}}
+                                <span>(you)</span>
+                            {{/if}}
+                        </td>
+                        <td>
+                            {{#if trade.buyerId}}
+                                {{> userLink userId=trade.buyerId}}
+                            {{else}}
+                                Not claimed
+                            {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>{{trade.description}}</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>
+                            <span>USD</span>
+                            <span>{{trade.price}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Valid Until</td>
+                        <td>
+                            <span>{{formatDate trade.expiration}}</span>
+                            <span>(</span>
+                            <span>{{formatDateFromNow trade.expiration}}</span>
+                            <span>)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

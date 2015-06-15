@@ -1,0 +1,25 @@
+<template name="referenceTable">
+    <div class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Insurer</th>
+                    <th>Object</th>
+                    <th>Liability</th>
+                    <th>Premium</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each references}}
+                    {{> referenceRow}}
+                {{else}}
+                    <tr>
+                        <td colspan="5">There are no references</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>

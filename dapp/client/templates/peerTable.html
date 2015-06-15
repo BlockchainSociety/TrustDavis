@@ -1,0 +1,21 @@
+<template name="peerTable">
+    <div class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Peer</th>
+                    <th>Max Liability</th>
+                    <th>Locked Liability</th>
+                    <th>Premium</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each peers}}
+                    {{> peerRow}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>

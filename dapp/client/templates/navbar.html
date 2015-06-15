@@ -1,0 +1,50 @@
+<template name="navbar">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor route='trades'}}">TrustDavis</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="{{activeIfTemplateIs 'trades'}}">
+                        <a href="{{pathFor route='trades'}}"><i class="fa fa-exchange fa-fw"></i>&nbsp;Trades</a>
+                    </li>
+                    <li class="{{activeIfTemplateIs 'references'}}">
+                        <a href="{{pathFor route='references'}}"><i class="fa fa-check-square-o fa-fw"></i>&nbsp;References</a>
+                    </li>
+                    <li class="{{activeIfTemplateIs 'peers'}}">
+                        <a href="{{pathFor route='peers'}}"><i class="fa fa-at fa-fw"></i>&nbsp;Peers</a>
+                    </li>
+                    <li class="{{activeIfTemplateIs 'network'}}">
+                        <a href="{{pathFor route='network'}}"><i class="fa fa-cloud fa-fw"></i>&nbsp;Network</a>
+                    </li>
+                </ul>
+                <form class="search navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input name="searchId" type="text" class="form-control" pattern="\w{17}" spellCheck="false" placeholder="User or Trade ID" ref="searchId" />
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="fa fa-search"></span></button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{pathFor route='userDetails' userId=userId}}">
+                            <span class="fa fa-user"></span> {{userName userId}} ({{userId}})
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{pathFor route='userDetails' userId=userId}}">
+                            USD {{userBalance userId}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>

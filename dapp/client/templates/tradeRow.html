@@ -1,0 +1,32 @@
+<template name="tradeRow">
+    <tr>
+        <td>{{type}}</td>
+        <td><a href="{{pathFor route='tradeDetails' tradeId=_id}}">{{description}}</a></td>
+        <td>USD {{price}}</td>
+        <td>
+            {{> userLink userId=traderId}}
+        </td>
+        <td>
+            {{#if counterPartyId}}
+                {{> userLink userId=counterPartyId}}
+            {{else}}
+                Not claimed
+            {{/if}}
+        </td>
+        <td>{{toUpperCase status}}</td>
+        <td>
+            {{#if hasExpired}}
+                Expired {{formatDateFromNow expiration}}
+                {{#if userIsTrader}}
+                    {{#if canBeCancelled}}
+                        <button type="button" class="btn btn-default btn-xs" id="btn-cancel-trade">
+                            <i class="fa fa-close fa-lg"></i>
+                        </button>
+                    {{/if}}
+                 {{/if}}
+            {{else}}
+                {{formatDate expiration}}
+            {{/if}}
+        </td>
+    </tr>
+</template>

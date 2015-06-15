@@ -1,0 +1,55 @@
+<template name="userSummaryPanel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+            <span>User Summary: </span>
+            <span>{{user.name}}</span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed table-striped">
+                <tbody>
+                    <tr>
+                        <td>User ID</td>
+                        <td>
+                            <span>{{user._id}}</span>
+                            <button type="button" class="btn btn-default btn-xs" id="btn-show-user-id">
+                                <i class="fa fa-files-o fa-lg"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <span>{{user.name}}</span>
+                            {{#if showAddtoPeers}}
+                                <button type="button" class="btn btn-default" id="btn-add-to-peers">
+                                Add to Peers
+                                </button>
+                            {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Trades</td>
+                        <td>{{tradesCount}}</td>
+                    </tr>
+                    <tr>
+                        <td>Peers</td>
+                        <td>{{peersCount}}</td>
+                    </tr>
+                    {{#if showBalanceForm}}
+                    <tr>
+                        <td>Balance</td>
+                        <td>
+                            <span>USD {{user.balance}}</span>
+                            <button type="button" class="btn btn-default" id="btn-modify-balance">
+                                Balance/Withdraw Funds
+                            </button>
+                        </td>
+                    </tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

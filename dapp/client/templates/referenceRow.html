@@ -1,0 +1,22 @@
+<template name="referenceRow">
+    <tr>
+        <td>
+            <input class="switch" type="checkbox" name="my-checkbox" readonly={{#unless ../enableSwitches}}true{{/unless}}
+                 checked={{isChecked isActive true}} data-size="mini" data-on-text="active" data-off-text="inactive">
+        </td>
+        <td>
+            {{> userLink userId=fromId}}
+        </td>
+        <td>
+            {{> userLink userId=objectId}}
+        </td>
+        <td>
+            <span>USD</span>
+            <span>{{amount}}</span>
+        </td>
+        <td>
+            <span>{{premiumPct}}</span>
+            <span>%</span>
+        </td>
+    </tr>
+</template>

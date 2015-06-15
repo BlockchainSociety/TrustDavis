@@ -1,0 +1,23 @@
+<template name="tradeTable">
+    <div class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Trader</th>
+                    <th>Counterparty</th>
+                    <th>Status</th>
+                    <th>Expiration</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each trades}}
+                    {{> tradeRow}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>

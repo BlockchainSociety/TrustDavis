@@ -1,0 +1,5 @@
+<template name="userDetails">
+{{> userSummaryPanel user=user tradesCount=tradesCount peersCount=peersCount}}
+{{> tradeTable title = tradesTitle trades = userTrades }}
+{{> peerTable title = peersTitle peers = userPeers }}
+</template>

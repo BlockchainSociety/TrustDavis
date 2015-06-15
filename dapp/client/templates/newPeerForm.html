@@ -1,0 +1,58 @@
+<template name="newPeerForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+            New Peer
+            </h3>
+        </div>
+        <div class="panel-body">
+            {{#autoForm schema=newPeerFormSchema id="newPeerForm" type="method" meteormethod="newPeer"}}
+                <div class="row">
+                    <div class="col-lg-3{{#if afFieldIsInvalid name='objectId'}} has-error{{/if}}">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                I want to add
+                            </span>
+                            {{> afFieldInput name='objectId' placeholder="person"}}
+                        </div>
+                        {{#if afFieldIsInvalid name='objectId'}}
+                        <span class="help-block">{{afFieldMessage name='objectId'}}</span>
+                        {{/if}}
+                    </div>
+                    <div class="col-lg-4{{#if afFieldIsInvalid name='maxLiability'}} has-error{{/if}}">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                with a maximum liability of USD
+                            </span>
+                            {{> afFieldInput name='maxLiability' placeholder="0.00" step="0.01"}}
+                        </div>
+                        {{#if afFieldIsInvalid name='maxLiability'}}
+                        <span class="help-block">{{afFieldMessage name='maxLiability'}}</span>
+                        {{/if}}
+                    </div>
+                    <div class="col-lg-3{{#if afFieldIsInvalid name='premiumPct'}} has-error{{/if}}">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                for a premium of
+                            </span>
+                            {{> afFieldInput name='premiumPct' placeholder="0.0" step="0.1"}}
+                            <span class="input-group-addon">
+                                %
+                            </span>
+                        </div>
+                        {{#if afFieldIsInvalid name='premiumPct'}}
+                        <span class="help-block">{{afFieldMessage name='premiumPct'}}</span>
+                        {{/if}}
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Create</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>

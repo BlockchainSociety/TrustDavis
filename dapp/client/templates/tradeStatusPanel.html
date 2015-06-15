@@ -1,0 +1,51 @@
+<template name="tradeStatusPanel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+            Status
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-4">
+                    Seller Insurance
+                </div>
+                <div class="col-xs-8">
+                    {{> progressBar pct=trade.sellerInsurancePct}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    Buyer Insurance
+                </div>
+                <div class="col-xs-8">
+                    {{> progressBar pct=trade.buyerInsurancePct}}
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-xs-4">
+                    Status
+                </div>
+                <div class="col-xs-8">
+                    {{toUpperCase trade.status}}
+                </div>
+            </div>
+            <div class="row spacer">
+                {{#if trade.canBeAccepted}}
+                    <div class="col-xs-4">
+                        <button type="button" class="btn btn-default" id="btn-accept">
+                        Accept Trade
+                        </button>
+                    </div>
+                {{/if}}
+                {{#if trade.canBeCancelled}}
+                    <div class="col-xs-4">
+                        <button type="button" class="btn btn-default" id="btn-cancel">
+                        Cancel
+                        </button>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

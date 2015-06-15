@@ -1,0 +1,43 @@
+<template name="newTradeForm">
+    <div class="panel panel-default">
+        <!-- TODO: Fix Grid Layout -->
+        {{#autoForm schema=newTradeFormSchema id="newTradeForm" type="method" meteormethod="newTrade"}}
+            {{> afFieldInput name="type" value=type type="hidden"}}
+            {{> afFieldInput name="expiration" value=validUntil type="hidden"}}
+            <div class="row">
+                <div class="col-lg-5{{#if afFieldIsInvalid name='description'}} has-error{{/if}}">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            I want to <strong>{{type}}</strong>
+                        </span>
+                        {{> afFieldInput name='description' placeholder="schemaLabel"}}
+                    </div>
+                    {{#if afFieldIsInvalid name='description'}}
+                    <span class="help-block">{{afFieldMessage name='description'}}</span>
+                    {{/if}}
+                </div>
+                <div class="col-lg-2{{#if afFieldIsInvalid name='price'}} has-error{{/if}}">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                        for USD
+                        </span>
+                        {{> afFieldInput name='price' placeholder="0.00" step="0.01"}}
+                    </div>
+                    {{#if afFieldIsInvalid name='price'}}
+                    <span class="help-block">{{afFieldMessage name='price'}}</span>
+                    {{/if}}
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            This offer is <strong>valid for {{validDays}} days</strong> (until {{validUntil}})
+                        </span>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Create</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        {{/autoForm}}
+    </div>
+</template>

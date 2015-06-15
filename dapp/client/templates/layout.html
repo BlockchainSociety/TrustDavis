@@ -1,0 +1,11 @@
+<template name="layout">
+<div class="container">
+    {{> navbar}}
+
+    {{#if isNewbie}}
+        {{> newUserForm}}
+    {{/if}}
+
+    {{> yield}}
+</div>
+</template>

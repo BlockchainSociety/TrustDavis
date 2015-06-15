@@ -1,0 +1,14 @@
+<template name="references">
+    <!-- <h2>References</h2> -->
+
+    <div class="row">
+        <div class="col-sm-6">
+            {{> referencesOverviewPanel}}
+        </div>
+        <div class="col-sm-6">
+            {{> referencesBalancePanel}}
+        </div>
+    </div>
+
+    {{> referenceTable title="Your References" references=myReferences}}
+</template>

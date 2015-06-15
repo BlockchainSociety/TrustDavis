@@ -1,0 +1,36 @@
+<template name="newUserForm">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Welcome to TrustDavis!</h3>
+    </div>
+    <div class="panel-body">
+        {{#autoForm schema=newUserFormSchema id="newUserForm" type="method" meteormethod="newUser"}}
+            <div class="row">
+                <div class="col-lg-12">
+                    Now is the time to pick a nickname! How do you want to be known?
+                </div>
+            </div>
+            <div class="row spacer">
+                <div class="col-lg-4{{#if afFieldIsInvalid name='name'}} has-error{{/if}}">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            My name is
+                        </span>
+                        {{> afFieldInput name='name' placeholder="name"}}
+                    </div>
+                    {{#if afFieldIsInvalid name='name'}}
+                    <span class="help-block">{{afFieldMessage name='name'}}</span>
+                    {{/if}}
+                </div>
+                <div class="col-lg-8">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Register</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        {{/autoForm}}
+    </div>
+</div>
+</template>

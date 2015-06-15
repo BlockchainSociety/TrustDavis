@@ -1,0 +1,21 @@
+.form-control.small {
+    width: 100px;
+}
+
+.form-control.medium {
+    width: 170px;
+}
+
+.spacer {
+    margin-top: 20px;
+}
+
+.double-spacer {
+    margin-top: 40px;
+}
+
+.network {
+    width: 100%;
+    height: 50vw;
+    background-color: #E5D8CA;
+}

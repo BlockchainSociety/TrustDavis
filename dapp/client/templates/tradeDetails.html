@@ -1,0 +1,17 @@
+<template name="tradeDetails">
+
+<div class="row">
+    <div class="col-sm-6">
+        {{> tradeSummaryPanel trade=trade}}
+    </div>
+    <div class="col-sm-6">
+        {{> tradeStatusPanel trade=trade}}
+    </div>
+</div>
+
+{{> referenceTable title="Reference for the Seller" references=sellerPeers enableSwitches=trade.userIsBuyer}}
+
+{{> referenceTable title="Reference for the Buyer" references=buyerPeers enableSwitches=trade.userIsSeller}}
+
+
+</template>
